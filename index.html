@@ -1332,6 +1332,8 @@ function downloadCsv(filename, csv){
   a.href = url; a.download = filename; a.click();
   URL.revokeObjectURL(url);
 }
+
+
 function exportCsv(kind){
   let rows = [];
   if(kind==='vehicles') rows = state.data.vehicles.map(v=>({RegNo:v.regNo,Name:v.name,Type:v.type,Capacity:v.capacityLabel,Odometer:v.odometer,AcqCost:v.acqCost,Status:v.status}));
