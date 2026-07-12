@@ -61,7 +61,7 @@
   h1,h2,h3,.brand{font-family:'Space Grotesk',sans-serif;}
   .mono{font-family:'JetBrains Mono',monospace;}
   #app{min-height:100vh;}
- 
+
   /* ---------- LOGIN ---------- */
   .login-wrap{
     display:flex; min-height:100vh;
@@ -85,7 +85,7 @@
   .roles-list b{color:var(--text);font-weight:600;}
   .dot{width:6px;height:6px;border-radius:50%;background:var(--accent);display:inline-block;margin-right:10px;}
   .foot-note{color:var(--text-faint);font-size:11px;letter-spacing:.4px;text-transform:uppercase;}
- 
+
   .login-card{width:100%;max-width:400px;}
   .login-card h2{font-size:22px;margin:0 0 4px;}
   .login-card p.sub{color:var(--text-dim);font-size:13px;margin:0 0 28px;}
@@ -118,7 +118,7 @@
     padding:12px 14px;font-size:12.5px;color:var(--red);line-height:1.7;
   }
   .hint{color:var(--text-faint);font-size:11.5px;margin-top:18px;line-height:1.6;border-top:1px dashed var(--border);padding-top:14px;}
- 
+
   /* ---------- APP SHELL ---------- */
   .shell{display:flex;min-height:100vh;}
   .sidebar{
@@ -137,7 +137,7 @@
   .navitem .ic{width:16px;text-align:center;}
   .navlock{font-size:9.5px;color:var(--text-faint);margin-left:auto;border:1px solid var(--border);padding:1px 5px;border-radius:20px;}
   .sidebar-foot{margin-top:auto;padding-top:14px;border-top:1px solid var(--border-soft);}
- 
+
   .main{flex:1;display:flex;flex-direction:column;min-width:0;}
   .topbar{
     display:flex;align-items:center;gap:14px;padding:14px 26px;border-bottom:1px solid var(--border);
@@ -159,7 +159,7 @@
   .content{padding:24px 26px;overflow-y:auto;}
   .page-title{font-size:20px;margin:0 0 18px;display:flex;align-items:center;gap:10px;}
   .page-title .num{color:var(--text-faint);font-weight:500;}
- 
+
   .kpi-row{display:grid;grid-template-columns:repeat(7,1fr);gap:12px;margin-bottom:20px;}
   @media (max-width:1300px){.kpi-row{grid-template-columns:repeat(4,1fr);}}
   .kpi{
@@ -170,12 +170,12 @@
   .kpi.orange{border-left-color:var(--orange);}
   .kpi label{margin:0 0 6px;font-size:10px;}
   .kpi .val{font-size:22px;font-weight:700;font-family:'Space Grotesk',sans-serif;}
- 
+
   .panel{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius);padding:18px;margin-bottom:18px;}
   .panel-title{font-size:13px;font-weight:700;color:var(--text-dim);text-transform:uppercase;letter-spacing:.5px;margin:0 0 14px;display:flex;align-items:center;justify-content:space-between;}
   .grid-2{display:grid;grid-template-columns:1.4fr 1fr;gap:18px;align-items:start;}
   @media (max-width:1000px){.grid-2{grid-template-columns:1fr;}}
- 
+
   table{width:100%;border-collapse:collapse;font-size:13px;}
   th{text-align:left;color:var(--text-faint);font-weight:600;font-size:10.5px;letter-spacing:.5px;text-transform:uppercase;
     padding:8px 10px;border-bottom:1px solid var(--border);cursor:pointer;user-select:none;white-space:nowrap;}
@@ -191,7 +191,7 @@
   .badge.Off.Duty,.badge.OffDuty,.badge.Draft{background:var(--panel-2);color:var(--text-dim);border:1px solid var(--border);}
   .badge.Dispatched{background:var(--blue-bg);color:var(--blue);}
   .badge.Completed,.badge.Active-ok{background:var(--green-bg);color:var(--green);}
- 
+
   .toolbar{display:flex;gap:10px;align-items:center;margin-bottom:16px;flex-wrap:wrap;}
   .toolbar select,.toolbar input{width:auto;min-width:120px;padding:8px 10px;font-size:12.5px;}
   .toolbar .spacer{flex:1;}
@@ -236,7 +236,7 @@
   ::-webkit-scrollbar{width:9px;height:9px;}
   ::-webkit-scrollbar-thumb{background:var(--border);border-radius:6px;}
   .banner{background:var(--orange-bg);border:1px solid var(--orange);color:var(--orange);font-size:12.5px;padding:10px 14px;border-radius:8px;margin-bottom:16px;display:flex;gap:10px;align-items:center;}
- 
+
   /* ---------- RESPONSIVE ---------- */
   .hamburger{display:none;background:var(--panel-2);border:1px solid var(--border);border-radius:8px;width:36px;height:36px;
     align-items:center;justify-content:center;cursor:pointer;flex-shrink:0;color:var(--text);font-size:16px;}
@@ -244,12 +244,12 @@
   th.sortable::after{content:'⇅';opacity:.35;margin-left:5px;font-size:10px;}
   th.sort-asc::after{content:'↑';opacity:1;margin-left:5px;font-size:10px;color:var(--accent-2);}
   th.sort-desc::after{content:'↓';opacity:1;margin-left:5px;font-size:10px;color:var(--accent-2);}
- 
+
   @media (max-width:980px){
     .kpi-row{grid-template-columns:repeat(3,1fr);}
     .grid-2{grid-template-columns:1fr;}
   }
- 
+
   @media (max-width:768px){
     .hamburger{display:flex;}
     .shell{position:relative;}
@@ -281,7 +281,7 @@
     .role-badge span{display:none;}
     .role-badge{padding:5px 8px;}
   }
- 
+
   @media (max-width:480px){
     .kpi-row{grid-template-columns:repeat(2,1fr);}
     .brand{font-size:17px;}
@@ -296,21 +296,21 @@
 </head>
 <body data-theme="dark">
 <div id="app"></div>
- 
+
 <script>
 /* =========================================================
    TransitOps — in-memory demo data layer + SPA renderer
    ========================================================= */
- 
+
 const TODAY = new Date('2026-07-12');
- 
+
 function uid(prefix){ return prefix + Math.random().toString(36).slice(2,7).toUpperCase(); }
 function fmtMoney(n){ return '₹' + Math.round(n).toLocaleString('en-IN'); }
 function fmtDate(d){ if(!d) return '—'; const dt = new Date(d); return dt.toLocaleDateString('en-GB',{day:'2-digit',month:'short',year:'numeric'}); }
 function badgeClass(s){ return 'badge ' + String(s).replace(/\s+/g,'.'); }
 function isExpired(dateStr){ return new Date(dateStr) < TODAY; }
 function daysUntil(dateStr){ return Math.round((new Date(dateStr) - TODAY)/86400000); }
- 
+
 const RBAC = {
   'Fleet Manager':    {fleet:'edit', drivers:'edit', trips:'none', maintenance:'edit', fuel:'none', analytics:'edit'},
   'Dispatcher':       {fleet:'view', drivers:'none', trips:'edit', maintenance:'view', fuel:'none', analytics:'none'},
@@ -318,7 +318,7 @@ const RBAC = {
   'Financial Analyst':{fleet:'view', drivers:'none', trips:'none', maintenance:'none', fuel:'edit', analytics:'edit'},
 };
 const ROLE_INITIALS = {'Fleet Manager':'FM','Dispatcher':'DP','Safety Officer':'SO','Financial Analyst':'FA'};
- 
+
 function seed(){
   return {
     vehicles: [
@@ -354,7 +354,7 @@ function seed(){
     ],
   };
 }
- 
+
 let state = {
   theme:'dark',
   user:null,
@@ -369,17 +369,17 @@ let state = {
   modal:null,
   navOpen:false,
 };
- 
+
 function setState(patch){ Object.assign(state, patch); render(); }
 function showToast(msg, type){ state.toast = {msg, type: type||'ok'}; render(); clearTimeout(window.__toastTimer); window.__toastTimer = setTimeout(()=>{state.toast=null; render();}, 3200); }
- 
+
 function perm(section){
   if(!state.user) return 'none';
   return (RBAC[state.user.role] && RBAC[state.user.role][section]) || 'none';
 }
 function canEdit(section){ return perm(section) === 'edit'; }
 function canSee(section){ return perm(section) !== 'none'; }
- 
+
 /* ---------------- helpers over data ---------------- */
 function getVehicle(id){ return state.data.vehicles.find(v=>v.id===id); }
 function getDriver(id){ return state.data.drivers.find(d=>d.id===id); }
@@ -387,7 +387,7 @@ function getTrip(id){ return state.data.trips.find(t=>t.id===id); }
 function nonRetiredVehicles(){ return state.data.vehicles.filter(v=>v.status!=='Retired'); }
 function dispatchableVehicles(){ return state.data.vehicles.filter(v=>v.status==='Available'); }
 function dispatchableDrivers(){ return state.data.drivers.filter(d=>d.status==='Available' && !isExpired(d.expiry)); }
- 
+
 function maintenanceCostFor(vehicleId){
   return state.data.maintenance.filter(m=>m.vehicleId===vehicleId).reduce((s,m)=>s+Number(m.cost),0);
 }
@@ -417,7 +417,7 @@ function fleetFuelEfficiency(){
   if(liters===0) return 0;
   return +(dist/liters).toFixed(1);
 }
- 
+
 /* ================= RENDER: ROOT ================= */
 function render(){
   document.body.setAttribute('data-theme', state.theme);
@@ -435,7 +435,7 @@ function render(){
     document.body.appendChild(m.firstElementChild);
   }
 }
- 
+
 /* ================= LOGIN ================= */
 function renderLogin(){
   const err = state.locked
@@ -493,4 +493,556 @@ function renderLogin(){
       </div>
     </div>
   </div>`;
+}
+
+function doLogin(){
+  if(state.locked) return;
+  const email = document.getElementById('loginEmail').value.trim();
+  const pass = document.getElementById('loginPass').value.trim();
+  const role = document.getElementById('loginRole').value;
+  if(email.includes('@') && pass.length>=4){
+    state.loginAttempts = 0;
+    state.user = {name: email.split('@')[0].split('.').map(s=>s[0]?.toUpperCase()+s.slice(1)).join(' ') || 'Raven K.', email, role};
+    state.view = 'dashboard';
+    render();
+  } else {
+    state.loginAttempts++;
+    if(state.loginAttempts>=5) state.locked = true;
+    render();
+  }
+}
+function resetAttempts(){ state.loginAttempts=0; state.locked=false; render(); }
+function logout(){ state.user=null; state.view='dashboard'; state.navOpen=false; render(); }
+
+/* ================= APP SHELL ================= */
+const NAV = [
+  {key:'dashboard', label:'Dashboard', section:null},
+  {key:'fleet', label:'Fleet', section:'fleet'},
+  {key:'drivers', label:'Drivers', section:'drivers'},
+  {key:'trips', label:'Trips', section:'trips'},
+  {key:'maintenance', label:'Maintenance', section:'maintenance'},
+  {key:'fuel', label:'Fuel & Expenses', section:'fuel'},
+  {key:'analytics', label:'Analytics', section:'analytics'},
+  {key:'settings', label:'Settings', section:null},
+];
+
+function renderShell(){
+  const navHtml = NAV.map(n=>{
+    if(n.section && !canSee(n.section)) return '';
+    const p = n.section ? perm(n.section) : null;
+    return `<div class="navitem ${state.view===n.key?'active':''}" onclick="goTo('${n.key}')">
+      <span>${n.label}</span>
+      ${p==='view'?'<span class="navlock">VIEW</span>':''}
+    </div>`;
+  }).join('');
+
+  const titles = {dashboard:'0. Dashboard', fleet:'1. Vehicle Registry', drivers:'2. Drivers & Safety Profiles',
+    trips:'3. Trip Management', maintenance:'4. Maintenance', fuel:'5. Fuel & Expense Management',
+    analytics:'6. Reports & Analytics', settings:'7. Settings & RBAC'};
+
+  let body = '';
+  if(state.view==='dashboard') body = viewDashboard();
+  else if(state.view==='fleet') body = viewFleet();
+  else if(state.view==='drivers') body = viewDrivers();
+  else if(state.view==='trips') body = viewTrips();
+  else if(state.view==='maintenance') body = viewMaintenance();
+  else if(state.view==='fuel') body = viewFuel();
+  else if(state.view==='analytics') body = viewAnalytics();
+  else if(state.view==='settings') body = viewSettings();
+
+  return `
+  <div class="shell">
+    <div class="sidebar-scrim ${state.navOpen?'open':''}" onclick="closeNav()"></div>
+    <div class="sidebar ${state.navOpen?'open':''}">
+      <div class="brand">TransitOps</div>
+      <div class="tagline" style="padding-left:6px;margin-bottom:22px;">Smart Transport Ops</div>
+      ${navHtml}
+      <div class="sidebar-foot">
+        <div class="navitem" onclick="logout()"><span>← Log out</span></div>
+      </div>
+    </div>
+    <div class="main">
+      <div class="topbar">
+        <div class="hamburger" onclick="toggleNav()">☰</div>
+        <div class="search-box">🔍 <input placeholder="Search…" value="${state.search}" oninput="onSearch(this.value)"></div>
+        <div class="topbar-right">
+          <div class="theme-toggle" onclick="toggleTheme()"><div class="knob"></div></div>
+          <div class="user-chip">${state.user.name}</div>
+          <div class="role-badge"><div class="avatar">${ROLE_INITIALS[state.user.role]}</div><span>${state.user.role}</span></div>
+        </div>
+      </div>
+      <div class="content">
+        <div class="page-title">${titles[state.view]}</div>
+        ${body}
+      </div>
+    </div>
+  </div>`;
+}
+function goTo(view){ state.view = view; state.search=''; state.navOpen=false; render(); }
+function onSearch(v){ state.search = v; render(); }
+function toggleTheme(){ state.theme = state.theme==='dark'?'light':'dark'; render(); }
+function toggleNav(){ state.navOpen = !state.navOpen; render(); }
+function closeNav(){ state.navOpen = false; render(); }
+
+function applySort(view, rows){
+  const s = state.sort[view];
+  if(!s) return rows;
+  return [...rows].sort((a,b)=>{
+    let av=a[s.key], bv=b[s.key];
+    if(typeof av==='string') av=av.toLowerCase();
+    if(typeof bv==='string') bv=bv.toLowerCase();
+    if(av<bv) return s.dir==='asc'?-1:1;
+    if(av>bv) return s.dir==='asc'?1:-1;
+    return 0;
+  });
+}
+function sortBy(view,key){
+  const cur = state.sort[view];
+  if(cur && cur.key===key){ cur.dir = cur.dir==='asc'?'desc':'asc'; }
+  else { state.sort[view] = {key, dir:'asc'}; }
+  render();
+}
+function sortTh(view,key,label){
+  const s = state.sort[view];
+  const cls = s && s.key===key ? (s.dir==='asc'?'sort-asc':'sort-desc') : 'sortable';
+  return `<th class="${cls}" onclick="sortBy('${view}','${key}')">${label}</th>`;
+}
+function searchFilter(rows, fields){
+  if(!state.search) return rows;
+  const q = state.search.toLowerCase();
+  return rows.filter(r=>fields.some(f=>String(r[f]||'').toLowerCase().includes(q)));
+}
+
+/* ================= DASHBOARD ================= */
+function viewDashboard(){
+  const v = state.data.vehicles;
+  const t = state.data.trips;
+  const d = state.data.drivers;
+  const activeVehicles = v.filter(x=>x.status!=='Retired').length;
+  const availableVehicles = v.filter(x=>x.status==='Available').length;
+  const inMaint = v.filter(x=>x.status==='In Shop').length;
+  const activeTrips = t.filter(x=>x.status==='Dispatched').length;
+  const pendingTrips = t.filter(x=>x.status==='Draft').length;
+  const onDuty = d.filter(x=>x.status==='On Trip'||x.status==='Available').length;
+  const util = fleetUtilization();
+
+  const recent = [...t].sort((a,b)=> new Date(b.date)-new Date(a.date)).slice(0,5);
+
+  const expiring = d.filter(dr=> !isExpired(dr.expiry) && daysUntil(dr.expiry) <= 60);
+
+  const statusCounts = {Available:0,'On Trip':0,'In Shop':0,Retired:0};
+  v.forEach(x=>statusCounts[x.status]++);
+  const maxCount = Math.max(1, ...Object.values(statusCounts));
+
+  return `
+  ${expiring.length? `<div class="banner">⚠ ${expiring.length} driver license(s) expiring within 60 days — reminder queued for Safety Officer review.</div>`:''}
+  <div class="toolbar">
+    <span style="font-size:12px;color:var(--text-faint);">FILTERS</span>
+    <select onchange="setFilter('vehicleType',this.value)">
+      <option ${state.filters.vehicleType==='All'?'selected':''}>All</option>
+      ${[...new Set(v.map(x=>x.type))].map(ty=>`<option ${state.filters.vehicleType===ty?'selected':''}>${ty}</option>`).join('')}
+    </select>
+    <select onchange="setFilter('status',this.value)">
+      <option ${state.filters.status==='All'?'selected':''}>All</option>
+      ${['Available','On Trip','In Shop','Retired'].map(s=>`<option ${state.filters.status===s?'selected':''}>${s}</option>`).join('')}
+    </select>
+    <select onchange="setFilter('region',this.value)"><option>All Regions</option></select>
+  </div>
+  <div class="kpi-row">
+    <div class="kpi"><label>Active Vehicles</label><div class="val">${activeVehicles}</div></div>
+    <div class="kpi green"><label>Available Vehicles</label><div class="val">${availableVehicles}</div></div>
+    <div class="kpi orange"><label>Vehicles In Maintenance</label><div class="val">${inMaint}</div></div>
+    <div class="kpi"><label>Active Trips</label><div class="val">${activeTrips}</div></div>
+    <div class="kpi"><label>Pending Trips</label><div class="val">${pendingTrips}</div></div>
+    <div class="kpi"><label>Drivers On Duty</label><div class="val">${onDuty}</div></div>
+    <div class="kpi green"><label>Fleet Utilization</label><div class="val">${util}%</div></div>
+  </div>
+  <div class="grid-2">
+    <div class="panel">
+      <div class="panel-title">Recent Trips</div>
+      <table>
+        <tr><th>Trip</th><th>Vehicle</th><th>Driver</th><th>Status</th><th>Date</th></tr>
+        ${recent.map(tr=>`<tr>
+          <td class="mono">${tr.id}</td>
+          <td>${tr.vehicleId? getVehicle(tr.vehicleId).name : '—'}</td>
+          <td>${tr.driverId? getDriver(tr.driverId).name : '—'}</td>
+          <td><span class="${badgeClass(tr.status)}">${tr.status}</span></td>
+          <td>${fmtDate(tr.date)}</td>
+        </tr>`).join('')}
+      </table>
+    </div>
+    <div class="panel">
+      <div class="panel-title">Vehicle Status</div>
+      ${Object.entries(statusCounts).map(([k,n])=>{
+        const color = k==='Available'?'var(--green)':k==='On Trip'?'var(--blue)':k==='In Shop'?'var(--orange)':'var(--red)';
+        return `<div class="status-line"><span class="lbl">${k}</span><div class="bar-track"><div class="bar-fill" style="width:${(n/maxCount)*100}%;background:${color};"></div></div><span class="n">${n}</span></div>`;
+      }).join('')}
+    </div>
+  </div>`;
+}
+function setFilter(k,v){ state.filters[k]=v; render(); }
+
+/* ================= FLEET (Vehicle Registry) ================= */
+function viewFleet(){
+  const editable = canEdit('fleet');
+  let rows = state.data.vehicles;
+  if(state.filters.vehicleType && state.filters.vehicleType!=='All') rows = rows.filter(v=>v.type===state.filters.vehicleType);
+  if(state.filters.status && state.filters.status!=='All') rows = rows.filter(v=>v.status===state.filters.status);
+  rows = searchFilter(rows, ['regNo','name','type']);
+  rows = applySort('fleet', rows);
+
+  return `
+  <div class="toolbar">
+    <select onchange="setFilter('vehicleType',this.value)">
+      <option ${state.filters.vehicleType==='All'?'selected':''}>All</option>
+      ${[...new Set(state.data.vehicles.map(x=>x.type))].map(ty=>`<option ${state.filters.vehicleType===ty?'selected':''}>${ty}</option>`).join('')}
+    </select>
+    <select onchange="setFilter('status',this.value)">
+      <option ${state.filters.status==='All'?'selected':''}>All</option>
+      ${['Available','On Trip','In Shop','Retired'].map(s=>`<option ${state.filters.status===s?'selected':''}>${s}</option>`).join('')}
+    </select>
+    <div class="spacer"></div>
+    <button class="btn ghost" onclick="exportCsv('vehicles')">⇩ Export CSV</button>
+    ${editable? `<button class="btn" onclick="openVehicleModal()">+ Add Vehicle</button>` : `<span class="view-only-tag">View only — Fleet Manager can edit</span>`}
+  </div>
+  <div class="panel" style="padding:0;overflow-x:auto;">
+    <table>
+      <tr>
+        ${sortTh('fleet','regNo','Reg. No.')}
+        ${sortTh('fleet','name','Name/Model')}
+        ${sortTh('fleet','type','Type')}
+        ${sortTh('fleet','capacityKg','Capacity')}
+        ${sortTh('fleet','odometer','Odometer')}
+        ${sortTh('fleet','acqCost','Acq. Cost')}
+        ${sortTh('fleet','status','Status')}
+        <th>Ops Cost</th>${editable?'<th></th>':''}</tr>
+      ${rows.length? rows.map(v=>`
+        <tr>
+          <td class="mono">${v.regNo}</td>
+          <td>${v.name}</td>
+          <td>${v.type}</td>
+          <td>${v.capacityLabel}</td>
+          <td>${v.odometer.toLocaleString()}</td>
+          <td>${fmtMoney(v.acqCost)}</td>
+          <td><span class="${badgeClass(v.status)}">${v.status}</span></td>
+          <td>${fmtMoney(maintenanceCostFor(v.id)+fuelCostFor(v.id))}</td>
+          ${editable? `<td class="actions-cell">
+            <button class="link-btn" onclick="openVehicleModal('${v.id}')">Edit</button>
+            ${v.status!=='Retired' ? `<button class="link-btn" onclick="retireVehicle('${v.id}')">Retire</button>`:''}
+            ${v.status==='Available'||v.status==='Retired' ? `<button class="link-btn" style="color:var(--red);" onclick="deleteVehicle('${v.id}')">Delete</button>`:''}
+          </td>`:''}
+        </tr>`).join('') : `<tr><td colspan="9"><div class="empty-state">No vehicles match your filters.</div></td></tr>`}
+    </table>
+  </div>
+  <div class="rule-note">Rule: Registration No. must be unique · Retired/In Shop vehicles are hidden from Trip Dispatch.</div>
+  `;
+}
+
+function openVehicleModal(editId){
+  const v = editId ? getVehicle(editId) : null;
+  const isTon = v && v.capacityLabel && v.capacityLabel.includes('Ton');
+  const capVal = v ? (isTon ? v.capacityKg/1000 : v.capacityKg) : '';
+  state.modal = {html: `
+    <div class="modal-bg" onclick="if(event.target===this) closeModal()">
+      <div class="modal">
+        <h3>${v?'Edit Vehicle':'Add Vehicle'}</h3>
+        <p class="sub">${v? 'Update this vehicle&#39;s registry details.' : 'Register a new vehicle to the fleet.'}</p>
+        <div class="fieldset">
+          <div><label>Registration No.</label><input id="mRegNo" placeholder="GJ01AB1234" value="${v?v.regNo:''}"></div>
+          <div><label>Name / Model</label><input id="mName" placeholder="VAN-06" value="${v?v.name:''}"></div>
+          <div><label>Type</label>
+            <select id="mType">${['Van','Truck','Mini','Bike'].map(t=>`<option ${v&&v.type===t?'selected':''}>${t}</option>`).join('')}</select>
+          </div>
+          <div><label>Status</label>
+            <select id="mStatus">${['Available','In Shop','On Trip','Retired'].map(s=>`<option ${v&&v.status===s?'selected':''}>${s}</option>`).join('')}</select>
+          </div>
+          <div><label>Max Load Capacity</label><input id="mCap" type="number" placeholder="500" value="${capVal}"></div>
+          <div><label>Unit</label><select id="mCapUnit"><option value="kg" ${!isTon?'selected':''}>kg</option><option value="ton" ${isTon?'selected':''}>Ton</option></select></div>
+          <div><label>Odometer (km)</label><input id="mOdo" type="number" placeholder="0" value="${v?v.odometer:''}"></div>
+          <div><label>Acquisition Cost (₹)</label><input id="mAcq" type="number" placeholder="500000" value="${v?v.acqCost:''}"></div>
+        </div>
+        <div class="modal-actions">
+          <button class="btn secondary" onclick="closeModal()">Cancel</button>
+          <button class="btn" onclick="saveVehicle(${v?`'${v.id}'`:'null'})">${v?'Save Changes':'Save Vehicle'}</button>
+        </div>
+      </div>
+    </div>`};
+  render();
+}
+function closeModal(){ state.modal = null; render(); }
+function saveVehicle(editId){
+  const regNo = document.getElementById('mRegNo').value.trim().toUpperCase();
+  const name = document.getElementById('mName').value.trim();
+  const type = document.getElementById('mType').value;
+  const status = document.getElementById('mStatus').value;
+  const cap = Number(document.getElementById('mCap').value);
+  const unit = document.getElementById('mCapUnit').value;
+  const odo = Number(document.getElementById('mOdo').value)||0;
+  const acq = Number(document.getElementById('mAcq').value)||0;
+  if(!regNo || !name || !cap){ showToast('Please fill registration no., name, and capacity.','err'); return; }
+  if(state.data.vehicles.some(v=>v.regNo===regNo && v.id!==editId)){ showToast('Registration number must be unique — this one already exists.','err'); return; }
+  const capacityKg = unit==='ton'? cap*1000 : cap;
+  const capacityLabel = unit==='ton' ? `${cap} Ton` : `${cap} kg`;
+  if(editId){
+    const v = getVehicle(editId);
+    Object.assign(v, {regNo, name, type, capacityKg, capacityLabel, odometer:odo, acqCost:acq, status});
+    showToast('Vehicle updated.','ok');
+  } else {
+    state.data.vehicles.push({id:uid('V'), regNo, name, type, capacityKg, capacityLabel, odometer:odo, acqCost:acq, status});
+    showToast('Vehicle added to fleet.','ok');
+  }
+  closeModal();
+}
+function retireVehicle(id){
+  const v = getVehicle(id);
+  if(v.status==='On Trip'){ showToast('Cannot retire a vehicle that is currently On Trip.','err'); return; }
+  v.status='Retired';
+  render();
+  showToast(`${v.name} marked Retired.`,'ok');
+}
+function deleteVehicle(id){
+  const v = getVehicle(id);
+  if(state.data.trips.some(t=>t.vehicleId===id && (t.status==='Draft'||t.status==='Dispatched'))){
+    showToast('Cannot delete a vehicle linked to an active trip.','err'); return;
+  }
+  state.data.vehicles = state.data.vehicles.filter(x=>x.id!==id);
+  render();
+  showToast(`${v.name} removed from registry.`,'ok');
+}
+
+/* ================= DRIVERS ================= */
+function viewDrivers(){
+  const editable = canEdit('drivers');
+  let rows = searchFilter(state.data.drivers, ['name','license','category']);
+  rows = applySort('drivers', rows);
+  return `
+  <div class="toolbar">
+    <div class="spacer"></div>
+    <button class="btn ghost" onclick="exportCsv('drivers')">⇩ Export CSV</button>
+    ${editable? `<button class="btn" onclick="openDriverModal()">+ Add Driver</button>`: `<span class="view-only-tag">View only</span>`}
+  </div>
+  <div class="panel" style="padding:0;overflow-x:auto;">
+    <table>
+      <tr>
+        ${sortTh('drivers','name','Driver')}
+        ${sortTh('drivers','license','License No.')}
+        ${sortTh('drivers','category','Category')}
+        ${sortTh('drivers','expiry','Expiry')}
+        <th>Contact</th>
+        ${sortTh('drivers','tripsCompleted','Trips')}
+        ${sortTh('drivers','safety','Safety')}
+        ${sortTh('drivers','status','Status')}
+        ${editable?'<th></th>':''}</tr>
+      ${rows.map(d=>{
+        const expired = isExpired(d.expiry);
+        return `<tr>
+          <td>${d.name}</td>
+          <td class="mono">${d.license}</td>
+          <td>${d.category}</td>
+          <td>${fmtDate(d.expiry)} ${expired?'<span class="badge EXPIRED" style="margin-left:6px;">EXPIRED</span>':''}</td>
+          <td class="mono">${d.contact}</td>
+          <td>${d.tripsCompleted}</td>
+          <td><span class="${badgeClass(d.safety>=90?'Available':d.safety>=70?'On.Trip':'Suspended')}">${d.safety}%</span></td>
+          <td><span class="${badgeClass(d.status)}">${d.status}</span></td>
+          ${editable? `<td class="actions-cell">
+            <select onchange="toggleDriverStatus('${d.id}', this.value)" ${d.status==='On Trip'?'disabled':''}>
+              <option value="">Set status…</option>
+              <option value="Available">Available</option>
+              <option value="Off Duty">Off Duty</option>
+              <option value="Suspended">Suspended</option>
+            </select>
+            <button class="link-btn" onclick="openDriverModal('${d.id}')">Edit</button>
+            ${d.status!=='On Trip'? `<button class="link-btn" style="color:var(--red);" onclick="deleteDriver('${d.id}')">Delete</button>`:''}
+          </td>`:''}
+        </tr>`;
+      }).join('')}
+    </table>
+  </div>
+  <div class="rule-note">Rule: Expired license or Suspended status → blocked from trip assignment.</div>
+  `;
+}
+function toggleDriverStatus(id, val){
+  if(!val) return;
+  const d = getDriver(id);
+  d.status = val;
+  render();
+  showToast(`${d.name}'s status set to ${val}.`,'ok');
+}
+function openDriverModal(editId){
+  const d = editId ? getDriver(editId) : null;
+  state.modal = {html:`
+    <div class="modal-bg" onclick="if(event.target===this) closeModal()">
+      <div class="modal">
+        <h3>${d?'Edit Driver':'Add Driver'}</h3>
+        <p class="sub">${d? 'Update this driver&#39;s safety profile.' : 'Create a new driver safety profile.'}</p>
+        <div class="fieldset">
+          <div class="full"><label>Full Name</label><input id="dName" placeholder="e.g. Meera" value="${d?d.name:''}"></div>
+          <div><label>License No.</label><input id="dLic" placeholder="DL-XXXXX" value="${d?d.license:''}"></div>
+          <div><label>Category</label><select id="dCat"><option ${d&&d.category==='LMV'?'selected':''}>LMV</option><option ${d&&d.category==='HMV'?'selected':''}>HMV</option></select></div>
+          <div><label>License Expiry</label><input id="dExp" type="date" value="${d?d.expiry:'2028-01-01'}"></div>
+          <div><label>Contact Number</label><input id="dContact" placeholder="98xxxxxxxx" value="${d?d.contact:''}"></div>
+          <div><label>Safety Score (%)</label><input id="dSafety" type="number" min="0" max="100" value="${d?d.safety:100}"></div>
+        </div>
+        <div class="modal-actions">
+          <button class="btn secondary" onclick="closeModal()">Cancel</button>
+          <button class="btn" onclick="saveDriver(${d?`'${d.id}'`:'null'})">${d?'Save Changes':'Save Driver'}</button>
+        </div>
+      </div>
+    </div>`};
+  render();
+}
+function saveDriver(editId){
+  const name = document.getElementById('dName').value.trim();
+  const license = document.getElementById('dLic').value.trim().toUpperCase();
+  const category = document.getElementById('dCat').value;
+  const expiry = document.getElementById('dExp').value;
+  const contact = document.getElementById('dContact').value.trim();
+  const safety = Math.max(0, Math.min(100, Number(document.getElementById('dSafety').value)||0));
+  if(!name || !license || !expiry){ showToast('Please fill name, license number, and expiry.','err'); return; }
+  if(editId){
+    Object.assign(getDriver(editId), {name, license, category, expiry, contact, safety});
+    showToast('Driver profile updated.','ok');
+  } else {
+    state.data.drivers.push({id:uid('D'), name, license, category, expiry, contact, safety, tripsCompleted:0, status:'Available'});
+    showToast('Driver profile created.','ok');
+  }
+  closeModal();
+}
+function deleteDriver(id){
+  const d = getDriver(id);
+  if(state.data.trips.some(t=>t.driverId===id && (t.status==='Draft'||t.status==='Dispatched'))){
+    showToast('Cannot delete a driver linked to an active trip.','err'); return;
+  }
+  state.data.drivers = state.data.drivers.filter(x=>x.id!==id);
+  render();
+  showToast(`${d.name}'s profile removed.`,'ok');
+}
+
+/* ================= TRIPS ================= */
+function viewTrips(){
+  const editable = canEdit('trips');
+  let rows = searchFilter(state.data.trips, ['id','source','destination']);
+  rows = applySort('trips', rows);
+  return `
+  <div class="toolbar">
+    <div class="spacer"></div>
+    <button class="btn ghost" onclick="exportCsv('trips')">⇩ Export CSV</button>
+    ${editable? `<button class="btn" onclick="openTripModal()">+ Create Trip</button>`: `<span class="view-only-tag">View only</span>`}
+  </div>
+  <div class="panel" style="padding:0;overflow-x:auto;">
+    <table>
+      <tr>
+        ${sortTh('trips','id','Trip')}
+        <th>Route</th><th>Vehicle</th><th>Driver</th>
+        ${sortTh('trips','cargoWeight','Cargo')}
+        ${sortTh('trips','distance','Distance')}
+        ${sortTh('trips','status','Status')}
+        ${editable?'<th>Actions</th>':''}</tr>
+      ${rows.map(t=>`
+        <tr>
+          <td class="mono">${t.id}</td>
+          <td>${t.source} → ${t.destination}</td>
+          <td>${t.vehicleId? getVehicle(t.vehicleId).name : '<i style="color:var(--text-faint);">unassigned</i>'}</td>
+          <td>${t.driverId? getDriver(t.driverId).name : '<i style="color:var(--text-faint);">unassigned</i>'}</td>
+          <td>${t.cargoWeight} kg</td>
+          <td>${t.distance} km</td>
+          <td><span class="${badgeClass(t.status)}">${t.status}</span></td>
+          ${editable? `<td class="actions-cell">
+            ${t.status==='Draft' && t.vehicleId && t.driverId? `<button class="link-btn" onclick="dispatchTrip('${t.id}')">Dispatch</button>`:''}
+            ${t.status==='Draft' && (!t.vehicleId || !t.driverId)? `<button class="link-btn" onclick="assignTrip('${t.id}')">Assign</button>`:''}
+            ${t.status==='Dispatched'? `<button class="link-btn" onclick="openCompleteModal('${t.id}')">Complete</button>`:''}
+            ${(t.status==='Draft'||t.status==='Dispatched')? `<button class="link-btn" style="color:var(--red);" onclick="cancelTrip('${t.id}')">Cancel</button>`:''}
+          </td>`:''}
+        </tr>`).join('')}
+    </table>
+  </div>
+  <div class="rule-note">Rule: Cargo weight must not exceed vehicle capacity. Vehicle/driver already On Trip cannot be reassigned.</div>
+  `;
+}
+
+function openTripModal(){
+  const vOpts = dispatchableVehicles().map(v=>`<option value="${v.id}">${v.name} (${v.capacityLabel})</option>`).join('');
+  const dOpts = dispatchableDrivers().map(d=>`<option value="${d.id}">${d.name}</option>`).join('');
+  state.modal = {html:`
+    <div class="modal-bg" onclick="if(event.target===this) closeModal()">
+      <div class="modal">
+        <h3>Create Trip</h3>
+        <p class="sub">Draft a trip, then dispatch when ready.</p>
+        <div class="fieldset">
+          <div><label>Source</label><input id="tSrc" placeholder="Ahmedabad"></div>
+          <div><label>Destination</label><input id="tDst" placeholder="Surat"></div>
+          <div><label>Vehicle (Available only)</label><select id="tVeh"><option value="">Unassigned</option>${vOpts}</select></div>
+          <div><label>Driver (Available only)</label><select id="tDrv"><option value="">Unassigned</option>${dOpts}</select></div>
+          <div><label>Cargo Weight (kg)</label><input id="tCargo" type="number" placeholder="400"></div>
+          <div><label>Planned Distance (km)</label><input id="tDist" type="number" placeholder="150"></div>
+          <div class="full"><label>Expected Revenue (₹, optional — used for ROI)</label><input id="tRev" type="number" placeholder="8000"></div>
+        </div>
+        <div class="modal-actions">
+          <button class="btn secondary" onclick="closeModal()">Cancel</button>
+          <button class="btn" onclick="saveTrip()">Save as Draft</button>
+        </div>
+      </div>
+    </div>`};
+  render();
+}
+function saveTrip(){
+  const source = document.getElementById('tSrc').value.trim();
+  const destination = document.getElementById('tDst').value.trim();
+  const vehicleId = document.getElementById('tVeh').value || null;
+  const driverId = document.getElementById('tDrv').value || null;
+  const cargoWeight = Number(document.getElementById('tCargo').value)||0;
+  const distance = Number(document.getElementById('tDist').value)||0;
+  const revenue = Number(document.getElementById('tRev').value)||0;
+  if(!source || !destination || !cargoWeight){ showToast('Please fill source, destination, and cargo weight.','err'); return; }
+  if(vehicleId){
+    const v = getVehicle(vehicleId);
+    if(cargoWeight > v.capacityKg){ showToast(`Cargo weight (${cargoWeight}kg) exceeds ${v.name}'s max capacity (${v.capacityLabel}).`,'err'); return; }
+  }
+  state.data.trips.push({id:uid('TR'), source, destination, vehicleId, driverId, cargoWeight, distance, revenue, status:'Draft', date: '2026-07-12'});
+  closeModal();
+  showToast('Trip saved as Draft.','ok');
+}
+function assignTrip(tripId){
+  const t = getTrip(tripId);
+  const vOpts = dispatchableVehicles().map(v=>`<option value="${v.id}">${v.name} (${v.capacityLabel})</option>`).join('');
+  const dOpts = dispatchableDrivers().map(d=>`<option value="${d.id}">${d.name}</option>`).join('');
+  state.modal = {html:`
+    <div class="modal-bg" onclick="if(event.target===this) closeModal()">
+      <div class="modal">
+        <h3>Assign Vehicle &amp; Driver</h3>
+        <p class="sub">Trip ${t.id}: ${t.source} → ${t.destination} · Cargo ${t.cargoWeight}kg</p>
+        <div class="fieldset">
+          <div class="full"><label>Vehicle</label><select id="aVeh"><option value="">Unassigned</option>${vOpts}</select></div>
+          <div class="full"><label>Driver</label><select id="aDrv"><option value="">Unassigned</option>${dOpts}</select></div>
+        </div>
+        <div class="modal-actions">
+          <button class="btn secondary" onclick="closeModal()">Cancel</button>
+          <button class="btn" onclick="saveAssign('${t.id}')">Save</button>
+        </div>
+      </div>
+    </div>`};
+  render();
+}
+function saveAssign(tripId){
+  const t = getTrip(tripId);
+  const vehicleId = document.getElementById('aVeh').value || null;
+  const driverId = document.getElementById('aDrv').value || null;
+  if(vehicleId){
+    const v = getVehicle(vehicleId);
+    if(t.cargoWeight > v.capacityKg){ showToast(`Cargo weight exceeds ${v.name}'s max capacity.`,'err'); return; }
+  }
+  t.vehicleId = vehicleId; t.driverId = driverId;
+  closeModal();
+  showToast('Trip updated.','ok');
+}
+function dispatchTrip(tripId){
+  const t = getTrip(tripId);
+  const v = getVehicle(t.vehicleId), d = getDriver(t.driverId);
+  if(!v || v.status!=='Available'){ showToast('Vehicle is no longer Available.','err'); return; }
+  if(!d || d.status!=='Available'){ showToast('Driver is no longer Available.','err'); return; }
+  if(isExpired(d.expiry)){ showToast(`${d.name}'s license has expired — cannot dispatch.`,'err'); return; }
+  if(t.cargoWeight > v.capacityKg){ showToast('Cargo weight exceeds vehicle capacity.','err'); return; }
+  t.status='Dispatched'; v.status='On Trip'; d.status='On Trip';
+  render();
+  showToast(`Trip ${t.id} dispatched. ${v.name} & ${d.name} are now On Trip.`,'ok');
 }
