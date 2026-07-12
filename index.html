@@ -965,8 +965,23 @@ function openTripModal(){
   const dOpts = dispatchableDrivers().map(d=>`<option value="${d.id}">${d.name}</option>`).join('');
   state.modal = {html:`
     <div class="modal-bg" onclick="if(event.target===this) closeModal()">
-      <div class="modal">
-        <h3>Create Trip</h3>
+     <div class="modal">
+  <button
+    onclick="closeModal()"
+    style="
+      position:absolute;
+      top:12px;
+      right:15px;
+      background:none;
+      border:none;
+      color:#fff;
+      font-size:24px;
+      cursor:pointer;
+    "
+    title="Close">
+    &times;
+  </button>
+    <h3>Create Trip</h3>
         <p class="sub">Draft a trip, then dispatch when ready.</p>
         <div class="fieldset">
           <div><label>Source</label><input id="tSrc" placeholder="Ahmedabad"></div>
