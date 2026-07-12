@@ -292,10 +292,104 @@
     .modal-actions{flex-direction:column-reverse;}
     .modal-actions .btn{width:100%;}
   }
+
+  /* ---------- NOTIFICATION CENTER ---------- */
+  .bell-wrap{position:relative;}
+  .bell-btn{
+    background:var(--panel-2);border:1px solid var(--border);border-radius:8px;width:36px;height:36px;
+    display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:16px;color:var(--text);position:relative;
+  }
+  .bell-btn:hover{background:var(--panel);}
+  .bell-badge{
+    position:absolute;top:-5px;right:-5px;background:var(--red);color:#fff;font-size:10px;font-weight:800;
+    min-width:16px;height:16px;border-radius:20px;display:flex;align-items:center;justify-content:center;padding:0 4px;
+    border:2px solid var(--bg);
+  }
+  .notif-dropdown{
+    position:absolute;top:46px;right:0;width:340px;max-height:420px;overflow-y:auto;background:var(--panel);
+    border:1px solid var(--border);border-radius:10px;box-shadow:var(--shadow);z-index:120;animation:slidein .15s ease;
+  }
+  .notif-head{padding:12px 14px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;}
+  .notif-head b{font-size:13px;}
+  .notif-item{padding:11px 14px;border-bottom:1px solid var(--border-soft);cursor:pointer;transition:background .1s;}
+  .notif-item:hover{background:var(--panel-2);}
+  .notif-item:last-child{border-bottom:none;}
+  .notif-row{display:flex;align-items:center;gap:8px;margin-bottom:3px;}
+  .notif-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0;}
+  .notif-dot.danger{background:var(--red);}
+  .notif-dot.warning{background:var(--orange);}
+  .notif-dot.success{background:var(--green);}
+  .notif-title{font-size:12.5px;font-weight:700;color:var(--text);}
+  .notif-sub{font-size:11.5px;color:var(--text-dim);margin-left:15px;}
+  .notif-prio{font-size:9.5px;font-weight:800;text-transform:uppercase;letter-spacing:.4px;padding:2px 7px;border-radius:20px;margin-left:auto;}
+  .notif-prio.High{background:var(--red-bg);color:var(--red);}
+  .notif-prio.Medium{background:var(--orange-bg);color:var(--orange);}
+  .notif-prio.Low{background:var(--panel-2);color:var(--text-faint);border:1px solid var(--border);}
+  .notif-empty{padding:30px 14px;text-align:center;color:var(--text-faint);font-size:12.5px;}
+  .notif-foot{padding:9px 14px;text-align:center;border-top:1px solid var(--border);}
+
+  /* ---------- DOCUMENTS ---------- */
+  .doc-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+  .doc-card{background:var(--panel-2);border:1px solid var(--border);border-radius:8px;padding:12px;}
+  .doc-card-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;}
+  .doc-card-head b{font-size:12.5px;}
+  .doc-status{display:inline-flex;align-items:center;gap:5px;font-size:10.5px;font-weight:700;padding:3px 8px;border-radius:20px;}
+  .doc-status.valid{background:var(--green-bg);color:var(--green);}
+  .doc-status.soon{background:var(--orange-bg);color:var(--orange);}
+  .doc-status.expired{background:var(--red-bg);color:var(--red);}
+  .doc-status.none{background:var(--panel);color:var(--text-faint);border:1px solid var(--border);}
+  .doc-meta{font-size:11px;color:var(--text-faint);margin-bottom:8px;}
+  .doc-actions{display:flex;gap:6px;flex-wrap:wrap;}
+  .doc-actions .link-btn{font-size:11px;}
+  .doc-count-pill{font-size:10.5px;color:var(--text-dim);border:1px solid var(--border);padding:2px 8px;border-radius:20px;margin-left:8px;}
+
+  /* ---------- CHARTS ---------- */
+  .chart-card{background:var(--panel-2);border:1px solid var(--border);border-radius:8px;padding:14px;}
+  .chart-card canvas{max-height:220px;}
+  .analytics-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-bottom:18px;}
+  @media (max-width:1000px){.analytics-grid{grid-template-columns:1fr;}}
+  .gauge-wrap{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:10px 0;}
+  .gauge-val{font-size:26px;font-weight:700;font-family:'Space Grotesk',sans-serif;margin-top:-56px;color:var(--text);}
+  .gauge-lbl{font-size:11.5px;color:var(--text-faint);margin-top:6px;}
+
+  /* ---------- ANIMATIONS ---------- */
+  @keyframes fadeUp{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:translateY(0);}}
+  .kpi,.panel,.chart-card,.doc-card{animation:fadeUp .35s ease both;}
+  .kpi:nth-child(2){animation-delay:.03s;} .kpi:nth-child(3){animation-delay:.06s;} .kpi:nth-child(4){animation-delay:.09s;}
+  .kpi:nth-child(5){animation-delay:.12s;} .kpi:nth-child(6){animation-delay:.15s;} .kpi:nth-child(7){animation-delay:.18s;}
+  .btn,.navitem,.link-btn,.doc-card,.notif-item{transition:all .15s ease;}
+  .kpi:hover,.panel:hover,.chart-card:hover{border-color:var(--accent);}
+
+  /* ---------- SKELETON LOADER ---------- */
+  @keyframes shimmer{0%{background-position:-200px 0;}100%{background-position:200px 0;}}
+  .skel{background:linear-gradient(90deg,var(--panel-2) 25%,var(--border-soft) 37%,var(--panel-2) 63%);
+    background-size:400px 100%;animation:shimmer 1.2s infinite linear;border-radius:6px;}
+  .skel-row{height:14px;margin:10px 0;}
+  .skel-kpi{height:70px;border-radius:var(--radius);}
+
+  /* ---------- LOADING SPINNER ---------- */
+  .spinner{width:16px;height:16px;border:2px solid var(--border);border-top-color:var(--accent);border-radius:50%;
+    animation:spin .6s linear infinite;display:inline-block;}
+  @keyframes spin{to{transform:rotate(360deg);}}
+  .btn.loading{opacity:.75;pointer-events:none;}
+
+  /* ---------- EMPTY STATE ILLUSTRATION ---------- */
+  .empty-state{padding:44px 20px;}
+  .empty-illustration{font-size:34px;opacity:.35;margin-bottom:10px;}
+
+  /* ---------- EMAIL PREVIEW ---------- */
+  .email-preview{background:var(--panel-2);border:1px solid var(--border);border-radius:8px;padding:16px;margin:14px 0;}
+  .email-field{font-size:11.5px;color:var(--text-faint);margin-bottom:2px;text-transform:uppercase;letter-spacing:.4px;}
+  .email-val{font-size:13px;color:var(--text);margin-bottom:10px;}
+  .email-body{font-size:13px;color:var(--text);line-height:1.7;white-space:pre-line;border-top:1px dashed var(--border);padding-top:10px;}
 </style>
 </head>
 <body data-theme="dark">
 <div id="app"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.2/jspdf.plugin.autotable.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.4/chart.umd.min.js"></script>
 
 <script>
 /* =========================================================
@@ -319,13 +413,43 @@ const RBAC = {
 };
 const ROLE_INITIALS = {'Fleet Manager':'FM','Dispatcher':'DP','Safety Officer':'SO','Financial Analyst':'FA'};
 
+const DOC_TYPES = ['RC','Insurance','Fitness Certificate','Pollution Certificate','Permit'];
+
 function seed(){
   return {
     vehicles: [
-      {id:'V1', regNo:'GJ01AB4562', name:'VAN-05', type:'Van', capacityKg:500, capacityLabel:'500 kg', odometer:74000, acqCost:620000, status:'Available'},
-      {id:'V2', regNo:'GJ01AB9987', name:'TRUCK-11', type:'Truck', capacityKg:5000, capacityLabel:'5 Ton', odometer:182000, acqCost:2450000, status:'On Trip'},
-      {id:'V3', regNo:'GJ01AB1120', name:'MINI-03', type:'Mini', capacityKg:1000, capacityLabel:'1 Ton', odometer:66000, acqCost:410000, status:'In Shop'},
-      {id:'V4', regNo:'GJ01AB0081', name:'VAN-09', type:'Van', capacityKg:750, capacityLabel:'750 kg', odometer:24900, acqCost:590000, status:'Retired'},
+      {id:'V1', regNo:'GJ01AB4562', name:'VAN-05', type:'Van', capacityKg:500, capacityLabel:'500 kg', odometer:74000, acqCost:620000, status:'Available',
+        documents:{
+          'RC':{number:'RC-VAN05-01', expiry:'2029-04-01', fileName:'rc_van05.pdf', fileData:null},
+          'Insurance':{number:'INS-88213', expiry:'2026-07-28', fileName:'insurance_van05.pdf', fileData:null},
+          'Fitness Certificate':{number:'FIT-4471', expiry:'2027-02-10', fileName:null, fileData:null},
+          'Pollution Certificate':{number:'PUC-9021', expiry:'2026-06-30', fileName:'puc_van05.pdf', fileData:null},
+          'Permit':{number:'PRM-2201', expiry:'2028-01-15', fileName:null, fileData:null},
+        }},
+      {id:'V2', regNo:'GJ01AB9987', name:'TRUCK-11', type:'Truck', capacityKg:5000, capacityLabel:'5 Ton', odometer:182000, acqCost:2450000, status:'On Trip',
+        documents:{
+          'RC':{number:'RC-TRK11-01', expiry:'2030-01-01', fileName:'rc_truck11.pdf', fileData:null},
+          'Insurance':{number:'INS-99871', expiry:'2027-03-12', fileName:'insurance_truck11.pdf', fileData:null},
+          'Fitness Certificate':{number:'FIT-1187', expiry:'2026-08-02', fileName:null, fileData:null},
+          'Pollution Certificate':{number:'PUC-3312', expiry:'2026-05-20', fileName:null, fileData:null},
+          'Permit':{number:'PRM-8890', expiry:'2027-09-09', fileName:'permit_truck11.pdf', fileData:null},
+        }},
+      {id:'V3', regNo:'GJ01AB1120', name:'MINI-03', type:'Mini', capacityKg:1000, capacityLabel:'1 Ton', odometer:66000, acqCost:410000, status:'In Shop',
+        documents:{
+          'RC':{number:'RC-MIN03-01', expiry:'2028-11-01', fileName:null, fileData:null},
+          'Insurance':{number:'INS-11209', expiry:'2026-08-05', fileName:null, fileData:null},
+          'Fitness Certificate':{number:'FIT-7743', expiry:'2027-01-01', fileName:null, fileData:null},
+          'Pollution Certificate':{number:'PUC-5561', expiry:'2028-02-01', fileName:null, fileData:null},
+          'Permit':{number:'PRM-4432', expiry:'2027-07-01', fileName:null, fileData:null},
+        }},
+      {id:'V4', regNo:'GJ01AB0081', name:'VAN-09', type:'Van', capacityKg:750, capacityLabel:'750 kg', odometer:24900, acqCost:590000, status:'Retired',
+        documents:{
+          'RC':{number:'RC-VAN09-01', expiry:'2027-06-01', fileName:null, fileData:null},
+          'Insurance':{number:'INS-00812', expiry:'2025-12-01', fileName:null, fileData:null},
+          'Fitness Certificate':{number:'FIT-2290', expiry:'2026-01-01', fileName:null, fileData:null},
+          'Pollution Certificate':{number:'PUC-6634', expiry:'2026-02-01', fileName:null, fileData:null},
+          'Permit':{number:'PRM-7712', expiry:'2026-03-01', fileName:null, fileData:null},
+        }},
     ],
     drivers: [
       {id:'D1', name:'Alex', license:'DL-88213', category:'LMV', expiry:'2028-12-01', contact:'9876500001', safety:96, tripsCompleted:12, status:'Available'},
@@ -368,6 +492,9 @@ let state = {
   toast:null,
   modal:null,
   navOpen:false,
+  notifOpen:false,
+  loading:false,
+  confirmCtx:null,
 };
 
 function setState(patch){ Object.assign(state, patch); render(); }
@@ -417,6 +544,65 @@ function fleetFuelEfficiency(){
   if(liters===0) return 0;
   return +(dist/liters).toFixed(1);
 }
+
+/* ---------------- documents & reminders ---------------- */
+function docStatus(expiry){
+  if(!expiry) return 'none';
+  const days = daysUntil(expiry);
+  if(days < 0) return 'expired';
+  if(days <= 30) return 'soon';
+  return 'valid';
+}
+function docStatusLabel(s){
+  return s==='valid'?'Valid':s==='soon'?'Expiring Soon':s==='expired'?'Expired':'Not Uploaded';
+}
+function vehicleDocAlerts(v){
+  return DOC_TYPES.map(dt=>{
+    const doc = v.documents && v.documents[dt];
+    if(!doc) return null;
+    const st = docStatus(doc.expiry);
+    if(st==='expired' || st==='soon') return {vehicle:v, docType:dt, doc, status:st, days:daysUntil(doc.expiry)};
+    return null;
+  }).filter(Boolean);
+}
+function allDocAlerts(){
+  let out = [];
+  state.data.vehicles.filter(v=>v.status!=='Retired').forEach(v=>{ out = out.concat(vehicleDocAlerts(v)); });
+  return out;
+}
+function allLicenseAlerts(){
+  return state.data.drivers.filter(d=> daysUntil(d.expiry) <= 30).map(d=>({driver:d, status: isExpired(d.expiry)?'expired':'soon', days:daysUntil(d.expiry)}));
+}
+function priorityFor(days){
+  if(days < 0 || days <= 7) return 'High';
+  if(days <= 15) return 'Medium';
+  return 'Low';
+}
+function computeNotifications(){
+  const notifs = [];
+  allLicenseAlerts().forEach(a=>{
+    notifs.push({
+      type: a.status==='expired' ? 'danger' : 'warning',
+      title: `Driver License ${a.status==='expired'?'Expired':'Expiring'}`,
+      vehicle: null, driver: a.driver.name,
+      days: a.days, priority: priorityFor(a.days),
+      context:{kind:'license', driverId:a.driver.id}
+    });
+  });
+  allDocAlerts().forEach(a=>{
+    notifs.push({
+      type: a.status==='expired' ? 'danger' : 'warning',
+      title: `${a.docType} ${a.status==='expired'?'Expired':'Expiring'}`,
+      vehicle: a.vehicle.name, driver: null,
+      days: a.days, priority: priorityFor(a.days),
+      context:{kind:'document', vehicleId:a.vehicle.id, docType:a.docType}
+    });
+  });
+  notifs.sort((a,b)=>a.days-b.days);
+  return notifs;
+}
+function toggleNotif(){ state.notifOpen = !state.notifOpen; render(); }
+function closeNotif(){ state.notifOpen = false; }
 
 /* ================= RENDER: ROOT ================= */
 function render(){
@@ -541,7 +727,9 @@ function renderShell(){
     analytics:'6. Reports & Analytics', settings:'7. Settings & RBAC'};
 
   let body = '';
-  if(state.view==='dashboard') body = viewDashboard();
+  if(state.loading){
+    body = skeletonBody();
+  } else if(state.view==='dashboard') body = viewDashboard();
   else if(state.view==='fleet') body = viewFleet();
   else if(state.view==='drivers') body = viewDrivers();
   else if(state.view==='trips') body = viewTrips();
@@ -551,7 +739,7 @@ function renderShell(){
   else if(state.view==='settings') body = viewSettings();
 
   return `
-  <div class="shell">
+  <div class="shell" onclick="if(state.notifOpen){state.notifOpen=false;render();}">
     <div class="sidebar-scrim ${state.navOpen?'open':''}" onclick="closeNav()"></div>
     <div class="sidebar ${state.navOpen?'open':''}">
       <div class="brand">TransitOps</div>
@@ -566,6 +754,7 @@ function renderShell(){
         <div class="hamburger" onclick="toggleNav()">☰</div>
         <div class="search-box">🔍 <input placeholder="Search…" value="${state.search}" oninput="onSearch(this.value)"></div>
         <div class="topbar-right">
+          ${renderNotifBell()}
           <div class="theme-toggle" onclick="toggleTheme()"><div class="knob"></div></div>
           <div class="user-chip">${state.user.name}</div>
           <div class="role-badge"><div class="avatar">${ROLE_INITIALS[state.user.role]}</div><span>${state.user.role}</span></div>
@@ -578,7 +767,93 @@ function renderShell(){
     </div>
   </div>`;
 }
-function goTo(view){ state.view = view; state.search=''; state.navOpen=false; render(); }
+
+function renderNotifBell(){
+  const notifs = computeNotifications();
+  return `
+  <div class="bell-wrap">
+    <div class="bell-btn" onclick="event.stopPropagation();toggleNotif()">🔔${notifs.length? `<span class="bell-badge">${notifs.length>9?'9+':notifs.length}</span>`:''}</div>
+    ${state.notifOpen? `
+    <div class="notif-dropdown" onclick="event.stopPropagation()">
+      <div class="notif-head"><b>Notifications</b><span class="doc-count-pill">${notifs.length} alert${notifs.length===1?'':'s'}</span></div>
+      ${notifs.length? notifs.map((n,i)=>`
+        <div class="notif-item" onclick="openNotifDetail(${i})">
+          <div class="notif-row">
+            <span class="notif-dot ${n.type}"></span>
+            <span class="notif-title">${n.title}</span>
+            <span class="notif-prio ${n.priority}">${n.priority}</span>
+          </div>
+          <div class="notif-sub">${n.vehicle? 'Vehicle: '+n.vehicle+' · ':''}${n.driver? 'Driver: '+n.driver+' · ':''}${n.days<0? Math.abs(n.days)+' day(s) overdue' : n.days+' day(s) left'}</div>
+        </div>`).join('') : `<div class="notif-empty">🎉 No pending alerts. Everything is up to date.</div>`}
+      ${notifs.length? `<div class="notif-foot"><button class="link-btn" onclick="goTo('dashboard');closeNotifAndRender();">View Reminder Dashboard</button></div>`:''}
+    </div>`:''}
+  </div>`;
+}
+function closeNotifAndRender(){ state.notifOpen=false; render(); }
+function openNotifDetail(i){
+  const notifs = computeNotifications();
+  const n = notifs[i];
+  if(!n) return;
+  state.notifOpen = false;
+  if(n.context.kind==='license'){ openEmailModal({kind:'license', driverId:n.context.driverId}); }
+  else { openEmailModal({kind:'document', vehicleId:n.context.vehicleId, docType:n.context.docType}); }
+}
+function openEmailModal(ctx){
+  let subjectDetail = '', bodyDetail = '', recipient = '';
+  if(ctx.kind==='license'){
+    const d = getDriver(ctx.driverId);
+    subjectDetail = `Driver License Renewal — ${d?.name || 'Unknown'}`;
+    bodyDetail = `Your Driver License / Vehicle Document is about to expire.`;
+    recipient = `${(d?.name||'driver').toLowerCase().replace(/\s+/g,'.')}@transitops.in`;
+  } else {
+    const v = getVehicle(ctx.vehicleId);
+    subjectDetail = `${ctx.docType} Renewal — ${v?.name || 'Unknown'}`;
+    bodyDetail = `Your Driver License / Vehicle Document is about to expire.`;
+    recipient = `fleet.ops@transitops.in`;
+  }
+  state.modal = {html:`
+    <div class="modal-bg" onclick="if(event.target===this) closeModal()">
+      <div class="modal" style="width:460px;">
+        <h3>📧 Email Reminder</h3>
+        <p class="sub">Demo mode — preview or simulate sending this reminder.</p>
+        <div class="email-preview">
+          <div class="email-field">To</div><div class="email-val mono">${recipient}</div>
+          <div class="email-field">Subject</div><div class="email-val">${subjectDetail}</div>
+          <div class="email-body">Hello,
+
+${bodyDetail}
+
+Please renew before expiry.
+
+Regards,
+TransitOps</div>
+        </div>
+        <div class="modal-actions">
+          <button class="btn secondary" onclick="closeModal()">Close</button>
+          <button class="btn" onclick="sendEmailDemo()">Send Email</button>
+        </div>
+      </div>
+    </div>`};
+  render();
+}
+function sendEmailDemo(){
+  closeModal();
+  showToast('Reminder email sent (demo mode).','ok');
+}
+
+function skeletonBody(){
+  return `
+  <div class="kpi-row">
+    ${Array(4).fill(0).map(()=>`<div class="skel skel-kpi"></div>`).join('')}
+  </div>
+  <div class="panel">
+    ${Array(5).fill(0).map(()=>`<div class="skel skel-row"></div>`).join('')}
+  </div>`;
+}
+function goTo(view){
+  state.view = view; state.search=''; state.navOpen=false; state.loading=true; render();
+  setTimeout(()=>{ state.loading=false; render(); }, 300);
+}
 function onSearch(v){ state.search = v; render(); }
 function toggleTheme(){ state.theme = state.theme==='dark'?'light':'dark'; render(); }
 function toggleNav(){ state.navOpen = !state.navOpen; render(); }
@@ -634,8 +909,21 @@ function viewDashboard(){
   v.forEach(x=>statusCounts[x.status]++);
   const maxCount = Math.max(1, ...Object.values(statusCounts));
 
+  const licenseAlerts = allLicenseAlerts();
+  const docAlerts = allDocAlerts();
+  const expiringLicenses = licenseAlerts.filter(a=>a.status==='soon').length;
+  const expiringDocs = docAlerts.filter(a=>a.status==='soon').length;
+  const expiredDocs = docAlerts.filter(a=>a.status==='expired').length + licenseAlerts.filter(a=>a.status==='expired').length;
+  const totalAlerts = licenseAlerts.length + docAlerts.length;
+
   return `
   ${expiring.length? `<div class="banner">⚠ ${expiring.length} driver license(s) expiring within 60 days — reminder queued for Safety Officer review.</div>`:''}
+  <div class="kpi-row" style="grid-template-columns:repeat(4,1fr);margin-bottom:16px;">
+    <div class="kpi orange" style="cursor:pointer;" onclick="openReminderList('licenses')"><label>Expiring Licenses</label><div class="val">${expiringLicenses}</div></div>
+    <div class="kpi orange" style="cursor:pointer;" onclick="openReminderList('documents')"><label>Expiring Documents</label><div class="val">${expiringDocs}</div></div>
+    <div class="kpi" style="cursor:pointer;border-left-color:var(--red);" onclick="openReminderList('expired')"><label>Expired Documents</label><div class="val">${expiredDocs}</div></div>
+    <div class="kpi green" style="cursor:pointer;" onclick="openReminderList('all')"><label>Total Alerts</label><div class="val">${totalAlerts}</div></div>
+  </div>
   <div class="toolbar">
     <span style="font-size:12px;color:var(--text-faint);">FILTERS</span>
     <select onchange="setFilter('vehicleType',this.value)">
@@ -664,8 +952,8 @@ function viewDashboard(){
         <tr><th>Trip</th><th>Vehicle</th><th>Driver</th><th>Status</th><th>Date</th></tr>
         ${recent.map(tr=>`<tr>
           <td class="mono">${tr.id}</td>
-          <td>${tr.vehicleId? getVehicle(tr.vehicleId).name : '—'}</td>
-          <td>${tr.driverId? getDriver(tr.driverId).name : '—'}</td>
+          <td>${tr.vehicleId? (getVehicle(tr.vehicleId)?.name || 'Deleted') : '—'}</td>
+          <td>${tr.driverId? (getDriver(tr.driverId)?.name || 'Deleted') : '—'}</td>
           <td><span class="${badgeClass(tr.status)}">${tr.status}</span></td>
           <td>${fmtDate(tr.date)}</td>
         </tr>`).join('')}
@@ -681,6 +969,42 @@ function viewDashboard(){
   </div>`;
 }
 function setFilter(k,v){ state.filters[k]=v; render(); }
+
+function openReminderList(kind){
+  const licenseAlerts = allLicenseAlerts();
+  const docAlerts = allDocAlerts();
+  let items = [];
+  let title = '';
+  if(kind==='licenses'){ title='Expiring Licenses'; items = licenseAlerts.filter(a=>a.status==='soon').map(a=>({label:a.driver.name, sub:`License · ${a.days} day(s) left`, ctx:{kind:'license', driverId:a.driver.id}})); }
+  else if(kind==='documents'){ title='Expiring Documents'; items = docAlerts.filter(a=>a.status==='soon').map(a=>({label:`${a.vehicle.name} — ${a.docType}`, sub:`${a.days} day(s) left`, ctx:{kind:'document', vehicleId:a.vehicle.id, docType:a.docType}})); }
+  else if(kind==='expired'){ title='Expired Documents & Licenses';
+    items = [
+      ...licenseAlerts.filter(a=>a.status==='expired').map(a=>({label:a.driver.name, sub:`License · expired ${Math.abs(a.days)} day(s) ago`, ctx:{kind:'license', driverId:a.driver.id}})),
+      ...docAlerts.filter(a=>a.status==='expired').map(a=>({label:`${a.vehicle.name} — ${a.docType}`, sub:`Expired ${Math.abs(a.days)} day(s) ago`, ctx:{kind:'document', vehicleId:a.vehicle.id, docType:a.docType}})),
+    ];
+  } else {
+    title='All Alerts';
+    items = [
+      ...licenseAlerts.map(a=>({label:a.driver.name, sub:`License · ${a.status==='expired'?'expired '+Math.abs(a.days)+' day(s) ago':a.days+' day(s) left'}`, ctx:{kind:'license', driverId:a.driver.id}})),
+      ...docAlerts.map(a=>({label:`${a.vehicle.name} — ${a.docType}`, sub:a.status==='expired'?`Expired ${Math.abs(a.days)} day(s) ago`:`${a.days} day(s) left`, ctx:{kind:'document', vehicleId:a.vehicle.id, docType:a.docType}})),
+    ];
+  }
+  state.modal = {html:`
+    <div class="modal-bg" onclick="if(event.target===this) closeModal()">
+      <div class="modal" style="width:460px;max-height:80vh;overflow-y:auto;">
+        <h3>${title}</h3>
+        <p class="sub">${items.length} item(s) requiring attention.</p>
+        ${items.length? items.map(it=>`
+          <div class="doc-card" style="margin-bottom:8px;">
+            <div class="doc-card-head"><b>${it.label}</b></div>
+            <div class="doc-meta">${it.sub}</div>
+            <div class="doc-actions"><button class="link-btn" onclick='openEmailModal(${JSON.stringify(it.ctx)})'>✉ Send Reminder</button></div>
+          </div>`).join('') : `<div class="empty-state"><div class="empty-illustration">✅</div>Nothing here — all clear.</div>`}
+        <div class="modal-actions"><button class="btn secondary" onclick="closeModal()">Close</button></div>
+      </div>
+    </div>`};
+  render();
+}
 
 /* ================= FLEET (Vehicle Registry) ================= */
 function viewFleet(){
@@ -703,6 +1027,7 @@ function viewFleet(){
     </select>
     <div class="spacer"></div>
     <button class="btn ghost" onclick="exportCsv('vehicles')">⇩ Export CSV</button>
+    <button class="btn ghost" onclick="exportPdf('vehicles')">📄 Export PDF</button>
     ${editable? `<button class="btn" onclick="openVehicleModal()">+ Add Vehicle</button>` : `<span class="view-only-tag">View only — Fleet Manager can edit</span>`}
   </div>
   <div class="panel" style="padding:0;overflow-x:auto;">
@@ -715,8 +1040,10 @@ function viewFleet(){
         ${sortTh('fleet','odometer','Odometer')}
         ${sortTh('fleet','acqCost','Acq. Cost')}
         ${sortTh('fleet','status','Status')}
-        <th>Ops Cost</th>${editable?'<th></th>':''}</tr>
-      ${rows.length? rows.map(v=>`
+        <th>Ops Cost</th><th>Documents</th>${editable?'<th></th>':''}</tr>
+      ${rows.length? rows.map(v=>{
+        const ds = docSummaryFor(v);
+        return `
         <tr>
           <td class="mono">${v.regNo}</td>
           <td>${v.name}</td>
@@ -726,16 +1053,146 @@ function viewFleet(){
           <td>${fmtMoney(v.acqCost)}</td>
           <td><span class="${badgeClass(v.status)}">${v.status}</span></td>
           <td>${fmtMoney(maintenanceCostFor(v.id)+fuelCostFor(v.id))}</td>
+          <td><button class="link-btn" onclick="openDocsModal('${v.id}')">${ds.expired>0?'⚠ ':''}${ds.valid}/${ds.total} valid<span class="doc-count-pill">${ds.expired>0?ds.expired+' expired':ds.soon>0?ds.soon+' soon':'ok'}</span></button></td>
           ${editable? `<td class="actions-cell">
             <button class="link-btn" onclick="openVehicleModal('${v.id}')">Edit</button>
             ${v.status!=='Retired' ? `<button class="link-btn" onclick="retireVehicle('${v.id}')">Retire</button>`:''}
-            ${v.status==='Available'||v.status==='Retired' ? `<button class="link-btn" style="color:var(--red);" onclick="deleteVehicle('${v.id}')">Delete</button>`:''}
+            ${v.status==='Available'||v.status==='Retired' ? `<button class="link-btn" style="color:var(--red);" onclick="confirmDeleteVehicle('${v.id}')">Delete</button>`:''}
           </td>`:''}
-        </tr>`).join('') : `<tr><td colspan="9"><div class="empty-state">No vehicles match your filters.</div></td></tr>`}
+        </tr>`;}).join('') : `<tr><td colspan="10"><div class="empty-state"><div class="empty-illustration">🚚</div>No vehicles match your filters.</div></td></tr>`}
     </table>
   </div>
   <div class="rule-note">Rule: Registration No. must be unique · Retired/In Shop vehicles are hidden from Trip Dispatch.</div>
   `;
+}
+
+/* ---------------- vehicle documents module ---------------- */
+function docSummaryFor(v){
+  const docs = v.documents || {};
+  let valid=0, soon=0, expired=0, none=0;
+  DOC_TYPES.forEach(dt=>{
+    const doc = docs[dt];
+    if(!doc || !doc.expiry){ none++; return; }
+    const st = docStatus(doc.expiry);
+    if(st==='valid') valid++; else if(st==='soon') soon++; else if(st==='expired') expired++;
+  });
+  return {valid, soon, expired, none, total: DOC_TYPES.length};
+}
+function openDocsModal(vehicleId){
+  const v = getVehicle(vehicleId);
+  if(!v) return;
+  const editable = canEdit('fleet');
+  const ds = docSummaryFor(v);
+  state.modal = {html:`
+    <div class="modal-bg" onclick="if(event.target===this) closeModal()">
+      <div class="modal" style="width:560px;max-height:85vh;overflow-y:auto;">
+        <h3>📁 Vehicle Documents — ${v.name}</h3>
+        <p class="sub">${v.regNo} · ${ds.valid}/${ds.total} documents valid<span class="doc-count-pill">${ds.expired>0?ds.expired+' expired':ds.soon>0?ds.soon+' expiring soon':'all clear'}</span></p>
+        ${ds.expired>0? `<div class="banner">⚠ ${ds.expired} document(s) have expired for this vehicle. Renew immediately to avoid compliance issues.</div>`:''}
+        <div class="doc-grid">
+          ${DOC_TYPES.map(dt=>renderDocCard(v, dt, editable)).join('')}
+        </div>
+        <div class="modal-actions"><button class="btn secondary" onclick="closeModal()">Close</button></div>
+      </div>
+    </div>`};
+  render();
+}
+function renderDocCard(v, docType, editable){
+  const doc = (v.documents && v.documents[docType]) || {number:'', expiry:'', fileName:null, fileData:null};
+  const st = docStatus(doc.expiry);
+  const inputId = 'docfile_'+v.id+'_'+docType.replace(/\s+/g,'');
+  return `
+  <div class="doc-card">
+    <div class="doc-card-head">
+      <b>${docType}</b>
+      <span class="doc-status ${st}">${docStatusLabel(st)}</span>
+    </div>
+    <div class="doc-meta">${doc.number? 'No: '+doc.number+' · ':''}Expiry: ${doc.expiry? fmtDate(doc.expiry):'—'}</div>
+    <div class="doc-meta">${doc.fileName? '📎 '+doc.fileName : 'No file uploaded'}</div>
+    <div class="doc-actions">
+      ${doc.fileName? `<button class="link-btn" onclick="previewDoc('${v.id}','${docType}')">Preview</button>
+        <button class="link-btn" onclick="downloadDoc('${v.id}','${docType}')">Download</button>`:''}
+      ${editable? `
+        <input type="file" id="${inputId}" style="display:none;" accept="image/*,application/pdf" onchange="handleDocUpload('${v.id}','${docType}',this)">
+        <button class="link-btn" onclick="document.getElementById('${inputId}').click()">${doc.fileName?'Replace':'Upload'}</button>
+        <button class="link-btn" onclick="openDocEditModal('${v.id}','${docType}')">Edit Details</button>
+        ${doc.fileName? `<button class="link-btn" style="color:var(--red);" onclick="deleteDoc('${v.id}','${docType}')">Delete</button>`:''}
+      `:''}
+    </div>
+  </div>`;
+}
+function handleDocUpload(vehicleId, docType, input){
+  const file = input.files[0];
+  if(!file) return;
+  const reader = new FileReader();
+  reader.onload = function(e){
+    const v = getVehicle(vehicleId);
+    if(!v.documents) v.documents = {};
+    if(!v.documents[docType]) v.documents[docType] = {number:'', expiry:'', fileName:null, fileData:null};
+    v.documents[docType].fileName = file.name;
+    v.documents[docType].fileData = e.target.result;
+    showToast(`${docType} uploaded for ${v.name}.`,'ok');
+    openDocsModal(vehicleId);
+  };
+  reader.readAsDataURL(file);
+}
+function previewDoc(vehicleId, docType){
+  const v = getVehicle(vehicleId);
+  const doc = v.documents[docType];
+  if(!doc || !doc.fileData){ showToast('No file to preview.','err'); return; }
+  const w = window.open();
+  if(doc.fileData.startsWith('data:image')){
+    w.document.write(`<title>${docType} — ${v.name}</title><body style="margin:0;background:#111;"><img src="${doc.fileData}" style="max-width:100%;display:block;margin:0 auto;"></body>`);
+  } else {
+    w.location = doc.fileData;
+  }
+}
+function downloadDoc(vehicleId, docType){
+  const v = getVehicle(vehicleId);
+  const doc = v.documents[docType];
+  if(!doc || !doc.fileData){ showToast('No file to download.','err'); return; }
+  const a = document.createElement('a');
+  a.href = doc.fileData; a.download = doc.fileName || (docType+'.pdf'); a.click();
+}
+function deleteDoc(vehicleId, docType){
+  confirmAction(`Delete the uploaded file for ${docType}? The record (number/expiry) will be kept.`, ()=>{
+    const v = getVehicle(vehicleId);
+    v.documents[docType].fileName = null;
+    v.documents[docType].fileData = null;
+    showToast(`${docType} file removed.`,'ok');
+    openDocsModal(vehicleId);
+  });
+}
+function openDocEditModal(vehicleId, docType){
+  const v = getVehicle(vehicleId);
+  const doc = v.documents[docType] || {number:'',expiry:''};
+  state.modal = {html:`
+    <div class="modal-bg" onclick="if(event.target===this) closeModal()">
+      <div class="modal">
+        <h3>Edit ${docType}</h3>
+        <p class="sub">${v.name} · ${v.regNo}</p>
+        <div class="fieldset">
+          <div class="full"><label>Document Number</label><input id="docNum" value="${doc.number||''}" placeholder="e.g. RC-12345"></div>
+          <div class="full"><label>Expiry Date</label><input id="docExp" type="date" value="${doc.expiry||''}"></div>
+        </div>
+        <div class="modal-actions">
+          <button class="btn secondary" onclick="openDocsModal('${vehicleId}')">Cancel</button>
+          <button class="btn" onclick="saveDocDetails('${vehicleId}','${docType}')">Save</button>
+        </div>
+      </div>
+    </div>`};
+  render();
+}
+function saveDocDetails(vehicleId, docType){
+  const number = document.getElementById('docNum').value.trim();
+  const expiry = document.getElementById('docExp').value;
+  const v = getVehicle(vehicleId);
+  if(!v.documents) v.documents = {};
+  if(!v.documents[docType]) v.documents[docType] = {fileName:null, fileData:null};
+  v.documents[docType].number = number;
+  v.documents[docType].expiry = expiry;
+  showToast(`${docType} details updated.`,'ok');
+  openDocsModal(vehicleId);
 }
 
 function openVehicleModal(editId){
@@ -761,6 +1218,11 @@ function openVehicleModal(editId){
           <div><label>Odometer (km)</label><input id="mOdo" type="number" placeholder="0" value="${v?v.odometer:''}"></div>
           <div><label>Acquisition Cost (₹)</label><input id="mAcq" type="number" placeholder="500000" value="${v?v.acqCost:''}"></div>
         </div>
+        ${v? (()=>{ const ds = docSummaryFor(v); return `
+        <div class="rule-note" style="display:flex;justify-content:space-between;align-items:center;">
+          <span>📁 Documents: ${ds.valid}/${ds.total} valid ${ds.expired>0?`· <span style="color:var(--red);">${ds.expired} expired</span>`:''}</span>
+          <button class="link-btn" onclick="openDocsModal('${v.id}')">Manage →</button>
+        </div>`; })() : ''}
         <div class="modal-actions">
           <button class="btn secondary" onclick="closeModal()">Cancel</button>
           <button class="btn" onclick="saveVehicle(${v?`'${v.id}'`:'null'})">${v?'Save Changes':'Save Vehicle'}</button>
@@ -770,6 +1232,38 @@ function openVehicleModal(editId){
   render();
 }
 function closeModal(){ state.modal = null; render(); }
+
+function confirmAction(message, onConfirm){
+  window.__confirmCb = onConfirm;
+  state.modal = {html:`
+    <div class="modal-bg" onclick="if(event.target===this) closeModal()">
+      <div class="modal" style="width:380px;">
+        <h3>⚠ Are you sure?</h3>
+        <p class="sub" style="margin-bottom:0;">${message}</p>
+        <div class="modal-actions">
+          <button class="btn secondary" onclick="closeModal()">Cancel</button>
+          <button class="btn danger" onclick="runConfirmed()">Confirm</button>
+        </div>
+      </div>
+    </div>`};
+  render();
+}
+function runConfirmed(){
+  const cb = window.__confirmCb;
+  window.__confirmCb = null;
+  state.modal = null;
+  if(cb) cb();
+}
+function confirmDeleteVehicle(id){
+  const v = getVehicle(id);
+  if(!v) return;
+  confirmAction(`Delete vehicle ${v.name} (${v.regNo}) from the registry? This cannot be undone.`, ()=>deleteVehicle(id));
+}
+function confirmDeleteDriver(id){
+  const d = getDriver(id);
+  if(!d) return;
+  confirmAction(`Delete driver profile for ${d.name}? This cannot be undone.`, ()=>deleteDriver(id));
+}
 function saveVehicle(editId){
   const regNo = document.getElementById('mRegNo').value.trim().toUpperCase();
   const name = document.getElementById('mName').value.trim();
@@ -785,16 +1279,17 @@ function saveVehicle(editId){
   const capacityLabel = unit==='ton' ? `${cap} Ton` : `${cap} kg`;
   if(editId){
     const v = getVehicle(editId);
-    Object.assign(v, {regNo, name, type, capacityKg, capacityLabel, odometer:odo, acqCost:acq, status});
+    if(v) Object.assign(v, {regNo, name, type, capacityKg, capacityLabel, odometer:odo, acqCost:acq, status});
     showToast('Vehicle updated.','ok');
   } else {
-    state.data.vehicles.push({id:uid('V'), regNo, name, type, capacityKg, capacityLabel, odometer:odo, acqCost:acq, status});
+    state.data.vehicles.push({id:uid('V'), regNo, name, type, capacityKg, capacityLabel, odometer:odo, acqCost:acq, status, documents:{}});
     showToast('Vehicle added to fleet.','ok');
   }
   closeModal();
 }
 function retireVehicle(id){
   const v = getVehicle(id);
+  if(!v) return;
   if(v.status==='On Trip'){ showToast('Cannot retire a vehicle that is currently On Trip.','err'); return; }
   v.status='Retired';
   render();
@@ -802,6 +1297,7 @@ function retireVehicle(id){
 }
 function deleteVehicle(id){
   const v = getVehicle(id);
+  if(!v) return;
   if(state.data.trips.some(t=>t.vehicleId===id && (t.status==='Draft'||t.status==='Dispatched'))){
     showToast('Cannot delete a vehicle linked to an active trip.','err'); return;
   }
@@ -819,6 +1315,7 @@ function viewDrivers(){
   <div class="toolbar">
     <div class="spacer"></div>
     <button class="btn ghost" onclick="exportCsv('drivers')">⇩ Export CSV</button>
+    <button class="btn ghost" onclick="exportPdf('drivers')">📄 Export PDF</button>
     ${editable? `<button class="btn" onclick="openDriverModal()">+ Add Driver</button>`: `<span class="view-only-tag">View only</span>`}
   </div>
   <div class="panel" style="padding:0;overflow-x:auto;">
@@ -852,7 +1349,7 @@ function viewDrivers(){
               <option value="Suspended">Suspended</option>
             </select>
             <button class="link-btn" onclick="openDriverModal('${d.id}')">Edit</button>
-            ${d.status!=='On Trip'? `<button class="link-btn" style="color:var(--red);" onclick="deleteDriver('${d.id}')">Delete</button>`:''}
+            ${d.status!=='On Trip'? `<button class="link-btn" style="color:var(--red);" onclick="confirmDeleteDriver('${d.id}')">Delete</button>`:''}
           </td>`:''}
         </tr>`;
       }).join('')}
@@ -864,6 +1361,7 @@ function viewDrivers(){
 function toggleDriverStatus(id, val){
   if(!val) return;
   const d = getDriver(id);
+  if(!d) return;
   d.status = val;
   render();
   showToast(`${d.name}'s status set to ${val}.`,'ok');
@@ -910,6 +1408,7 @@ function saveDriver(editId){
 }
 function deleteDriver(id){
   const d = getDriver(id);
+  if(!d) return;
   if(state.data.trips.some(t=>t.driverId===id && (t.status==='Draft'||t.status==='Dispatched'))){
     showToast('Cannot delete a driver linked to an active trip.','err'); return;
   }
@@ -927,6 +1426,7 @@ function viewTrips(){
   <div class="toolbar">
     <div class="spacer"></div>
     <button class="btn ghost" onclick="exportCsv('trips')">⇩ Export CSV</button>
+    <button class="btn ghost" onclick="exportPdf('trips')">📄 Export PDF</button>
     ${editable? `<button class="btn" onclick="openTripModal()">+ Create Trip</button>`: `<span class="view-only-tag">View only</span>`}
   </div>
   <div class="panel" style="padding:0;overflow-x:auto;">
@@ -942,8 +1442,8 @@ function viewTrips(){
         <tr>
           <td class="mono">${t.id}</td>
           <td>${t.source} → ${t.destination}</td>
-          <td>${t.vehicleId? getVehicle(t.vehicleId).name : '<i style="color:var(--text-faint);">unassigned</i>'}</td>
-          <td>${t.driverId? getDriver(t.driverId).name : '<i style="color:var(--text-faint);">unassigned</i>'}</td>
+          <td>${t.vehicleId? (getVehicle(t.vehicleId)?.name || '<i style="color:var(--text-faint);">deleted</i>') : '<i style="color:var(--text-faint);">unassigned</i>'}</td>
+          <td>${t.driverId? (getDriver(t.driverId)?.name || '<i style="color:var(--text-faint);">deleted</i>') : '<i style="color:var(--text-faint);">unassigned</i>'}</td>
           <td>${t.cargoWeight} kg</td>
           <td>${t.distance} km</td>
           <td><span class="${badgeClass(t.status)}">${t.status}</span></td>
@@ -996,14 +1496,16 @@ function saveTrip(){
   if(!source || !destination || !cargoWeight){ showToast('Please fill source, destination, and cargo weight.','err'); return; }
   if(vehicleId){
     const v = getVehicle(vehicleId);
-    if(cargoWeight > v.capacityKg){ showToast(`Cargo weight (${cargoWeight}kg) exceeds ${v.name}'s max capacity (${v.capacityLabel}).`,'err'); return; }
+    if(v && cargoWeight > v.capacityKg){ showToast(`Cargo weight (${cargoWeight}kg) exceeds ${v.name}'s max capacity (${v.capacityLabel}).`,'err'); return; }
   }
   state.data.trips.push({id:uid('TR'), source, destination, vehicleId, driverId, cargoWeight, distance, revenue, status:'Draft', date: '2026-07-12'});
   closeModal();
   showToast('Trip saved as Draft.','ok');
+  render(); // Fix applied
 }
 function assignTrip(tripId){
   const t = getTrip(tripId);
+  if(!t) return;
   const vOpts = dispatchableVehicles().map(v=>`<option value="${v.id}">${v.name} (${v.capacityLabel})</option>`).join('');
   const dOpts = dispatchableDrivers().map(d=>`<option value="${d.id}">${d.name}</option>`).join('');
   state.modal = {html:`
@@ -1029,7 +1531,7 @@ function saveAssign(tripId){
   const driverId = document.getElementById('aDrv').value || null;
   if(vehicleId){
     const v = getVehicle(vehicleId);
-    if(t.cargoWeight > v.capacityKg){ showToast(`Cargo weight exceeds ${v.name}'s max capacity.`,'err'); return; }
+    if(v && t.cargoWeight > v.capacityKg){ showToast(`Cargo weight exceeds ${v.name}'s max capacity.`,'err'); return; }
   }
   t.vehicleId = vehicleId; t.driverId = driverId;
   closeModal();
@@ -1047,7 +1549,9 @@ function dispatchTrip(tripId){
   showToast(`Trip ${t.id} dispatched. ${v.name} & ${d.name} are now On Trip.`,'ok');
 }
 function openCompleteModal(tripId){
-  const t = getTrip(tripId); const v = getVehicle(t.vehicleId);
+  const t = getTrip(tripId);
+  const v = getVehicle(t.vehicleId);
+  if(!v) { showToast('Assigned vehicle not found.', 'err'); return; }
   state.modal = {html:`
     <div class="modal-bg" onclick="if(event.target===this) closeModal()">
       <div class="modal">
@@ -1069,6 +1573,7 @@ function openCompleteModal(tripId){
 function completeTrip(tripId){
   const t = getTrip(tripId);
   const v = getVehicle(t.vehicleId), d = getDriver(t.driverId);
+  if(!v || !d) { showToast('Vehicle or driver not found. Cannot complete trip.', 'err'); return; }
   const odo = Number(document.getElementById('cOdo').value)||v.odometer;
   const liters = Number(document.getElementById('cFuel').value)||0;
   const cost = Number(document.getElementById('cFuelCost').value)||0;
@@ -1092,7 +1597,7 @@ function cancelTrip(tripId){
 /* ================= MAINTENANCE ================= */
 function viewMaintenance(){
   const editable = canEdit('maintenance');
-  const vOpts = state.data.vehicles.filter(v=>v.status!=='Retired').map(v=>`<option value="${v.id}">${v.name}</option>`).join('');
+  const vOpts = `<option value="" disabled selected>Select Vehicle...</option>` + state.data.vehicles.filter(v=>v.status!=='Retired').map(v=>`<option value="${v.id}">${v.name}</option>`).join('');
   let rows = [...state.data.maintenance].sort((a,b)=> new Date(b.date)-new Date(a.date));
   if(state.search){
     const q = state.search.toLowerCase();
@@ -1112,12 +1617,12 @@ function viewMaintenance(){
       `: `<div class="view-only-tag">View only — Fleet Manager can log service records</div>`}
     </div>
     <div class="panel">
-      <div class="panel-title">Service Log</div>
+      <div class="panel-title">Service Log <button class="btn ghost small" onclick="exportPdf('maintenance')">📄 Export PDF</button></div>
       <table>
         <tr><th>Vehicle</th><th>Service</th><th>Cost</th><th>Status</th>${editable?'<th></th>':''}</tr>
         ${rows.map(m=>{ const v = getVehicle(m.vehicleId); return `
         <tr>
-          <td>${v?v.name:'—'}</td>
+          <td>${v?v.name:'<i style="color:var(--text-faint);">Deleted</i>'}</td>
           <td>${m.serviceType}</td>
           <td>${fmtMoney(m.cost)}</td>
           <td><span class="${badgeClass(m.status==='Active'?'In.Shop':'Completed')}">${m.status==='Active'?'In Shop':'Completed'}</span></td>
@@ -1134,6 +1639,7 @@ function saveMaintenance(){
   const date = document.getElementById('mmDate').value;
   if(!vehicleId || !serviceType || !cost){ showToast('Please fill vehicle, service type, and cost.','err'); return; }
   const v = getVehicle(vehicleId);
+  if(!v){ showToast('Please select a valid vehicle.','err'); return; }
   if(v.status==='On Trip'){ showToast(`${v.name} is currently On Trip and cannot be sent to maintenance.`,'err'); return; }
   state.data.maintenance.push({id:uid('M'), vehicleId, serviceType, cost, date, status:'Active'});
   v.status='In Shop';
@@ -1142,98 +1648,14 @@ function saveMaintenance(){
 }
 function closeMaintenance(id){
   const m = state.data.maintenance.find(x=>x.id===id);
+  if(!m) return;
   m.status='Completed';
   const v = getVehicle(m.vehicleId);
-  if(v.status!=='Retired') v.status='Available';
+  if(v && v.status!=='Retired') v.status='Available';
   render();
-  showToast(`${v.name} is Available again.`,'ok');
+  showToast(v ? `${v.name} is Available again.` : `Service closed.`,'ok');
 }
 
-/* ================= FUEL & EXPENSES ================= */
-function viewFuel(){
-  const editable = canEdit('fuel');
-  const vOpts = state.data.vehicles.map(v=>`<option value="${v.id}">${v.name}</option>`).join('');
-  const tOpts = state.data.trips.map(t=>`<option value="${t.id}">${t.id} (${t.source}→${t.destination})</option>`).join('');
-  let fuelRows = [...state.data.fuelLogs].sort((a,b)=>new Date(b.date)-new Date(a.date));
-  let expRows = state.data.expenses;
-  if(state.search){
-    const q = state.search.toLowerCase();
-    fuelRows = fuelRows.filter(f=> (getVehicle(f.vehicleId)?.name||'').toLowerCase().includes(q));
-    expRows = expRows.filter(e=> e.tripId.toLowerCase().includes(q) || (getVehicle(e.vehicleId)?.name||'').toLowerCase().includes(q));
-  }
-
-  return `
-  <div class="panel">
-    <div class="panel-title">Fuel Logs ${editable?`<button class="btn small" onclick="openFuelModal()">+ Log Fuel</button>`:''}</div>
-    <table>
-      <tr><th>Vehicle</th><th>Date</th><th>Liters</th><th>Fuel Cost</th></tr>
-      ${fuelRows.map(f=>`<tr><td>${getVehicle(f.vehicleId)?.name||'—'}</td><td>${fmtDate(f.date)}</td><td>${f.liters} L</td><td>${fmtMoney(f.cost)}</td></tr>`).join('')}
-    </table>
-  </div>
-  <div class="panel">
-    <div class="panel-title">Other Expenses (Toll / Misc) ${editable?`<button class="btn small" onclick="openExpenseModal()">+ Add Expense</button>`:''}</div>
-    <table>
-      <tr><th>Trip</th><th>Vehicle</th><th>Toll</th><th>Other</th><th>Maint. (linked)</th><th>Total</th></tr>
-      ${expRows.map(e=>{
-        const v = getVehicle(e.vehicleId); const maint = maintenanceCostFor(e.vehicleId);
-        const total = Number(e.toll)+Number(e.other)+maint;
-        return `<tr><td class="mono">${e.tripId}</td><td>${v?v.name:'—'}</td><td>${fmtMoney(e.toll)}</td><td>${fmtMoney(e.other)}</td><td>${fmtMoney(maint)}</td><td>${fmtMoney(total)}</td></tr>`;
-      }).join('')}
-    </table>
-  </div>
-  <div class="panel" style="display:flex;justify-content:space-between;align-items:center;">
-    <span class="panel-title" style="margin:0;">Total Operational Cost (auto) = Fuel + Maintenance</span>
-    <span style="font-size:20px;font-weight:700;color:var(--accent-2);font-family:'Space Grotesk',sans-serif;">${fmtMoney(totalOperationalCost())}</span>
-  </div>
-  ${!editable? `<div class="view-only-tag">View only — Financial Analyst can log fuel and expenses</div>`:''}
-  `;
-}
-function openFuelModal(){
-  const vOpts = state.data.vehicles.map(v=>`<option value="${v.id}">${v.name}</option>`).join('');
-  state.modal={html:`<div class="modal-bg" onclick="if(event.target===this) closeModal()"><div class="modal">
-    <h3>Log Fuel</h3>
-    <div class="fieldset">
-      <div class="full"><label>Vehicle</label><select id="fVeh">${vOpts}</select></div>
-      <div><label>Date</label><input id="fDate" type="date" value="2026-07-12"></div>
-      <div><label>Liters</label><input id="fLit" type="number" placeholder="40"></div>
-      <div class="full"><label>Cost (₹)</label><input id="fCost" type="number" placeholder="3000"></div>
-    </div>
-    <div class="modal-actions"><button class="btn secondary" onclick="closeModal()">Cancel</button><button class="btn" onclick="saveFuel()">Save</button></div>
-  </div></div>`};
-  render();
-}
-function saveFuel(){
-  const vehicleId = document.getElementById('fVeh').value;
-  const date = document.getElementById('fDate').value;
-  const liters = Number(document.getElementById('fLit').value)||0;
-  const cost = Number(document.getElementById('fCost').value)||0;
-  if(!vehicleId || !liters || !cost){ showToast('Please fill all fuel log fields.','err'); return; }
-  state.data.fuelLogs.push({id:uid('F'), vehicleId, date, liters, cost});
-  closeModal();
-  showToast('Fuel log recorded.','ok');
-}
-function openExpenseModal(){
-  const tOpts = state.data.trips.map(t=>`<option value="${t.id}">${t.id} (${t.source}→${t.destination})</option>`).join('');
-  state.modal={html:`<div class="modal-bg" onclick="if(event.target===this) closeModal()"><div class="modal">
-    <h3>Add Expense</h3>
-    <div class="fieldset">
-      <div class="full"><label>Trip</label><select id="eTrip">${tOpts}</select></div>
-      <div><label>Toll (₹)</label><input id="eToll" type="number" placeholder="100"></div>
-      <div><label>Other (₹)</label><input id="eOther" type="number" placeholder="0"></div>
-    </div>
-    <div class="modal-actions"><button class="btn secondary" onclick="closeModal()">Cancel</button><button class="btn" onclick="saveExpense()">Save</button></div>
-  </div></div>`};
-  render();
-}
-function saveExpense(){
-  const tripId = document.getElementById('eTrip').value;
-  const toll = Number(document.getElementById('eToll').value)||0;
-  const other = Number(document.getElementById('eOther').value)||0;
-  const t = getTrip(tripId);
-  state.data.expenses.push({id:uid('E'), tripId, vehicleId:t.vehicleId, toll, other});
-  closeModal();
-  showToast('Expense recorded.','ok');
-}
 
 /* ================= ANALYTICS ================= */
 function viewAnalytics(){
@@ -1243,7 +1665,7 @@ function viewAnalytics(){
   const rois = state.data.vehicles.filter(v=>v.status!=='Retired').map(v=>{
     const rev = revenueFor(v.id), maint = maintenanceCostFor(v.id), fuel = fuelCostFor(v.id);
     const roi = v.acqCost>0 ? ((rev-(maint+fuel))/v.acqCost)*100 : 0;
-    return {name:v.name, roi, cost: maint+fuel};
+    return {name:v.name, roi, cost: maint+fuel, revenue:rev};
   });
   const avgRoi = rois.length? (rois.reduce((s,r)=>s+r.roi,0)/rois.length).toFixed(1) : '0.0';
   const costliest = [...rois].sort((a,b)=>b.cost-a.cost).slice(0,4);
@@ -1258,6 +1680,8 @@ function viewAnalytics(){
   });
   const maxRev = Math.max(1, ...Object.values(byMonth));
 
+  setTimeout(renderAnalyticsCharts, 0);
+
   return `
   <div class="kpi-row" style="grid-template-columns:repeat(4,1fr);">
     <div class="kpi"><label>Fuel Efficiency</label><div class="val">${fuelEff} km/L</div></div>
@@ -1266,6 +1690,21 @@ function viewAnalytics(){
     <div class="kpi green"><label>Avg. Vehicle ROI</label><div class="val">${avgRoi}%</div></div>
   </div>
   <div class="rule-note" style="margin:0 0 18px;">ROI = (Revenue − (Maintenance + Fuel)) / Acquisition Cost</div>
+
+  <div class="analytics-grid">
+    <div class="chart-card"><div class="panel-title">Vehicle Status</div><canvas id="chartStatus"></canvas></div>
+    <div class="chart-card"><div class="panel-title">Fuel Cost Trend (Monthly)</div><canvas id="chartFuelTrend"></canvas></div>
+    <div class="chart-card"><div class="panel-title">Monthly Trips</div><canvas id="chartMonthlyTrips"></canvas></div>
+    <div class="chart-card"><div class="panel-title">Operational Cost Breakdown</div><canvas id="chartOpCost"></canvas></div>
+    <div class="chart-card">
+      <div class="panel-title">Fleet Utilization</div>
+      <div class="gauge-wrap"><canvas id="chartGauge" style="max-width:220px;"></canvas><div class="gauge-val">${util}%</div><div class="gauge-lbl">of active fleet On Trip</div></div>
+    </div>
+    <div class="chart-card"><div class="panel-title">Vehicle ROI — Revenue vs Cost</div><canvas id="chartRoi"></canvas></div>
+    <div class="chart-card"><div class="panel-title">Top Performing Drivers</div><canvas id="chartDrivers"></canvas></div>
+    <div class="chart-card"><div class="panel-title">Safety Score Distribution</div><canvas id="chartSafety"></canvas></div>
+  </div>
+
   <div class="grid-2">
     <div class="panel">
       <div class="panel-title">Monthly Revenue (Completed Trips)</div>
@@ -1278,8 +1717,115 @@ function viewAnalytics(){
       ${costliest.map(c=>`<div class="status-line"><span class="lbl">${c.name}</span><div class="bar-track"><div class="bar-fill" style="width:${(c.cost/maxCost)*100}%;background:var(--accent);"></div></div><span class="n mono" style="width:80px;">${fmtMoney(c.cost)}</span></div>`).join('')}
     </div>
   </div>
-  <div class="toolbar"><div class="spacer"></div><button class="btn ghost" onclick="exportCsv('analytics')">⇩ Export CSV</button></div>
+  <div class="toolbar"><div class="spacer"></div>
+    <button class="btn ghost" onclick="exportCsv('analytics')">⇩ Export CSV</button>
+    <button class="btn ghost" onclick="exportPdf('analytics')">📄 Export PDF</button>
+  </div>
   `;
+}
+
+let __charts = {};
+function chartTheme(){
+  const styles = getComputedStyle(document.body);
+  return {
+    text: styles.getPropertyValue('--text-dim').trim() || '#9aa2ad',
+    grid: styles.getPropertyValue('--border-soft').trim() || '#1d2129',
+    blue: styles.getPropertyValue('--blue').trim() || '#4d9fec',
+    green: styles.getPropertyValue('--green').trim() || '#3ecf8e',
+    orange: styles.getPropertyValue('--orange').trim() || '#e0a52c',
+    red: styles.getPropertyValue('--red').trim() || '#ef5b6b',
+    accent: styles.getPropertyValue('--accent').trim() || '#e08a2c',
+    accent2: styles.getPropertyValue('--accent-2').trim() || '#f2a83e',
+  };
+}
+function destroyCharts(){
+  Object.values(__charts).forEach(c=>{ if(c) c.destroy(); });
+  __charts = {};
+}
+function renderAnalyticsCharts(){
+  if(typeof Chart === 'undefined') return;
+  const canvasIds = ['chartStatus','chartFuelTrend','chartMonthlyTrips','chartOpCost','chartGauge','chartRoi','chartDrivers','chartSafety'];
+  if(!canvasIds.every(id=>document.getElementById(id))) return; // view changed before render
+  destroyCharts();
+  const th = chartTheme();
+  Chart.defaults.color = th.text;
+  Chart.defaults.borderColor = th.grid;
+  Chart.defaults.font.family = "'Inter', system-ui, sans-serif";
+
+  const v = state.data.vehicles;
+  const statusCounts = {Available:0,'On Trip':0,'In Shop':0,Retired:0};
+  v.forEach(x=>statusCounts[x.status]++);
+  __charts.status = new Chart(document.getElementById('chartStatus'), {
+    type:'pie',
+    data:{ labels:Object.keys(statusCounts), datasets:[{ data:Object.values(statusCounts),
+      backgroundColor:[th.green, th.blue, th.orange, th.red] }] },
+    options:{ plugins:{legend:{position:'bottom', labels:{boxWidth:10,font:{size:11}}}}, responsive:true }
+  });
+
+  const months = ['Feb','Mar','Apr','May','Jun','Jul'];
+  const fuelByMonth = {}; months.forEach(m=>fuelByMonth[m]=0);
+  state.data.fuelLogs.forEach(f=>{ const mo = months[new Date(f.date).getMonth()-1]||'Jul'; fuelByMonth[mo]+=Number(f.cost); });
+  __charts.fuelTrend = new Chart(document.getElementById('chartFuelTrend'), {
+    type:'line',
+    data:{ labels:months, datasets:[{ label:'Fuel Cost (₹)', data:months.map(m=>fuelByMonth[m]),
+      borderColor:th.accent2, backgroundColor:th.accent2+'33', fill:true, tension:.35 }] },
+    options:{ plugins:{legend:{display:false}}, scales:{y:{beginAtZero:true, grid:{color:th.grid}}, x:{grid:{display:false}}} }
+  });
+
+  const tripsByMonth = {}; months.forEach(m=>tripsByMonth[m]=0);
+  state.data.trips.forEach(t=>{ const mo = months[new Date(t.date).getMonth()-1]||'Jul'; tripsByMonth[mo]++; });
+  __charts.monthlyTrips = new Chart(document.getElementById('chartMonthlyTrips'), {
+    type:'bar',
+    data:{ labels:months, datasets:[{ label:'Trips', data:months.map(m=>tripsByMonth[m]), backgroundColor:th.blue, borderRadius:4 }] },
+    options:{ plugins:{legend:{display:false}}, scales:{y:{beginAtZero:true, ticks:{stepSize:1}, grid:{color:th.grid}}, x:{grid:{display:false}}} }
+  });
+
+  const fuelTotal = state.data.fuelLogs.reduce((s,f)=>s+Number(f.cost),0);
+  const maintTotal = state.data.maintenance.reduce((s,m)=>s+Number(m.cost),0);
+  const otherTotal = state.data.expenses.reduce((s,e)=>s+Number(e.toll)+Number(e.other),0);
+  __charts.opCost = new Chart(document.getElementById('chartOpCost'), {
+    type:'doughnut',
+    data:{ labels:['Fuel','Maintenance','Other Expenses'], datasets:[{ data:[fuelTotal,maintTotal,otherTotal],
+      backgroundColor:[th.orange, th.red, th.blue] }] },
+    options:{ plugins:{legend:{position:'bottom', labels:{boxWidth:10,font:{size:11}}}} }
+  });
+
+  const util = fleetUtilization();
+  __charts.gauge = new Chart(document.getElementById('chartGauge'), {
+    type:'doughnut',
+    data:{ labels:['Utilized','Idle'], datasets:[{ data:[util, 100-util], backgroundColor:[th.green, th.grid], borderWidth:0 }] },
+    options:{ circumference:180, rotation:270, cutout:'75%', plugins:{legend:{display:false}, tooltip:{enabled:false}} }
+  });
+
+  const rois = state.data.vehicles.filter(x=>x.status!=='Retired').map(x=>({
+    name:x.name, revenue:revenueFor(x.id), cost: maintenanceCostFor(x.id)+fuelCostFor(x.id)
+  }));
+  __charts.roi = new Chart(document.getElementById('chartRoi'), {
+    type:'bar',
+    data:{ labels:rois.map(r=>r.name), datasets:[
+      {label:'Revenue', data:rois.map(r=>r.revenue), backgroundColor:th.green, borderRadius:4},
+      {label:'Cost', data:rois.map(r=>r.cost), backgroundColor:th.red, borderRadius:4},
+    ]},
+    options:{ plugins:{legend:{position:'bottom', labels:{boxWidth:10,font:{size:11}}}}, scales:{y:{beginAtZero:true, grid:{color:th.grid}}, x:{grid:{display:false}}} }
+  });
+
+  const topDrivers = [...state.data.drivers].sort((a,b)=>b.tripsCompleted-a.tripsCompleted).slice(0,5);
+  __charts.drivers = new Chart(document.getElementById('chartDrivers'), {
+    type:'bar',
+    data:{ labels:topDrivers.map(d=>d.name), datasets:[{ label:'Trips Completed', data:topDrivers.map(d=>d.tripsCompleted), backgroundColor:th.accent2, borderRadius:4 }] },
+    options:{ indexAxis:'y', plugins:{legend:{display:false}}, scales:{x:{beginAtZero:true, ticks:{stepSize:1}, grid:{color:th.grid}}, y:{grid:{display:false}}} }
+  });
+
+  const buckets = {'0-50':0,'51-70':0,'71-90':0,'91-100':0};
+  state.data.drivers.forEach(d=>{
+    if(d.safety<=50) buckets['0-50']++; else if(d.safety<=70) buckets['51-70']++;
+    else if(d.safety<=90) buckets['71-90']++; else buckets['91-100']++;
+  });
+  __charts.safety = new Chart(document.getElementById('chartSafety'), {
+    type:'bar',
+    data:{ labels:Object.keys(buckets), datasets:[{ label:'Drivers', data:Object.values(buckets), backgroundColor:[th.red,th.orange,th.blue,th.green], borderRadius:4 }] },
+    options:{ plugins:{legend:{display:false}}, scales:{y:{beginAtZero:true, ticks:{stepSize:1}, grid:{color:th.grid}}, x:{grid:{display:false}}} }
+  });
 }
 
 /* ================= SETTINGS ================= */
@@ -1332,11 +1878,106 @@ function downloadCsv(filename, csv){
   a.href = url; a.download = filename; a.click();
   URL.revokeObjectURL(url);
 }
+/* ================= PDF EXPORT ================= */
+function pdfDataFor(kind){
+  if(kind==='vehicles') return {
+    title:'Vehicle Registry Report',
+    head:[['Reg. No.','Name','Type','Capacity','Odometer','Acq. Cost','Status']],
+    body: state.data.vehicles.map(v=>[v.regNo, v.name, v.type, v.capacityLabel, v.odometer.toLocaleString(), fmtMoney(v.acqCost), v.status]),
+  };
+  if(kind==='drivers') return {
+    title:'Drivers Report',
+    head:[['Name','License','Category','Expiry','Contact','Trips','Safety','Status']],
+    body: state.data.drivers.map(d=>[d.name, d.license, d.category, fmtDate(d.expiry), d.contact, d.tripsCompleted, d.safety+'%', d.status]),
+  };
+  if(kind==='trips') return {
+    title:'Trips Report',
+    head:[['Trip','Route','Vehicle','Driver','Cargo','Distance','Status']],
+    body: state.data.trips.map(t=>[t.id, `${t.source} -> ${t.destination}`, t.vehicleId?(getVehicle(t.vehicleId)?.name||'—'):'—', t.driverId?(getDriver(t.driverId)?.name||'—'):'—', t.cargoWeight+' kg', t.distance+' km', t.status]),
+  };
+  if(kind==='maintenance') return {
+    title:'Maintenance Report',
+    head:[['Vehicle','Service Type','Cost','Date','Status']],
+    body: state.data.maintenance.map(m=>[getVehicle(m.vehicleId)?.name||'—', m.serviceType, fmtMoney(m.cost), fmtDate(m.date), m.status==='Active'?'In Shop':'Completed']),
+  };
+  if(kind==='fuel') return {
+    title:'Fuel Logs Report',
+    head:[['Vehicle','Date','Liters','Fuel Cost']],
+    body: state.data.fuelLogs.map(f=>[getVehicle(f.vehicleId)?.name||'—', fmtDate(f.date), f.liters+' L', fmtMoney(f.cost)]),
+  };
+  if(kind==='expenses') return {
+    title:'Expenses Report',
+    head:[['Trip','Vehicle','Toll','Other','Maintenance','Total']],
+    body: state.data.expenses.map(e=>{
+      const maint = maintenanceCostFor(e.vehicleId);
+      const total = Number(e.toll)+Number(e.other)+maint;
+      return [e.tripId, getVehicle(e.vehicleId)?.name||'—', fmtMoney(e.toll), fmtMoney(e.other), fmtMoney(maint), fmtMoney(total)];
+    }),
+  };
+  if(kind==='analytics') return {
+    title:'Fleet Analytics Report',
+    head:[['Vehicle','Fuel Cost','Maintenance Cost','Revenue']],
+    body: state.data.vehicles.map(v=>[v.name, fmtMoney(fuelCostFor(v.id)), fmtMoney(maintenanceCostFor(v.id)), fmtMoney(revenueFor(v.id))]),
+  };
+  return null;
+}
+function exportPdf(kind){
+  if(typeof window.jspdf === 'undefined'){ showToast('PDF library failed to load. Check your connection.','err'); return; }
+  const data = pdfDataFor(kind);
+  if(!data || !data.body.length){ showToast('Nothing to export yet.','err'); return; }
+  const { jsPDF } = window.jspdf;
+  const doc = new jsPDF({orientation:'landscape', unit:'pt'});
+  const pageWidth = doc.internal.pageSize.getWidth();
+
+  // Header: logo mark + brand
+  doc.setFillColor(224,138,44);
+  doc.roundedRect(40, 32, 26, 26, 5, 5, 'F');
+  doc.setFontSize(16); doc.setTextColor(20,20,20); doc.setFont('helvetica','bold');
+  doc.text('TransitOps', 74, 44);
+  doc.setFontSize(9); doc.setFont('helvetica','normal'); doc.setTextColor(110,110,110);
+  doc.text('Smart Transport Operations Platform', 74, 56);
+
+  doc.setFontSize(13); doc.setFont('helvetica','bold'); doc.setTextColor(20,20,20);
+  doc.text(data.title, pageWidth-40, 44, {align:'right'});
+  const now = new Date();
+  doc.setFontSize(9); doc.setFont('helvetica','normal'); doc.setTextColor(110,110,110);
+  doc.text(`Generated: ${now.toLocaleDateString('en-GB')} ${now.toLocaleTimeString('en-GB')}`, pageWidth-40, 58, {align:'right'});
+  doc.text(`Role: ${state.user ? state.user.role : '—'}  ·  User: ${state.user? state.user.name : '—'}`, pageWidth-40, 70, {align:'right'});
+
+  doc.setDrawColor(220,220,220); doc.line(40, 80, pageWidth-40, 80);
+
+  doc.autoTable({
+    head: data.head,
+    body: data.body,
+    startY: 92,
+    margin:{left:40, right:40},
+    styles:{fontSize:9, cellPadding:6},
+    headStyles:{fillColor:[224,138,44], textColor:[26,18,6], fontStyle:'bold'},
+    alternateRowStyles:{fillColor:[247,247,247]},
+    didDrawPage: function(hooks){
+      const pageH = doc.internal.pageSize.getHeight();
+      doc.setFontSize(8); doc.setTextColor(150,150,150);
+      doc.text('TransitOps © 2026 · Confidential Fleet Report', 40, pageH-20);
+      doc.text('Page ' + doc.internal.getNumberOfPages(), pageWidth-40, pageH-20, {align:'right'});
+    }
+  });
+
+  const y = doc.lastAutoTable.finalY + 20;
+  doc.setFontSize(8); doc.setTextColor(150,150,150);
+  if(y < doc.internal.pageSize.getHeight()-30){
+    doc.text('TransitOps © 2026 · Confidential Fleet Report', 40, doc.internal.pageSize.getHeight()-20);
+  }
+
+  const dateStr = now.toISOString().slice(0,10);
+  doc.save(`transitops-report-${dateStr}.pdf`);
+  showToast('PDF exported.','ok');
+}
+
 function exportCsv(kind){
   let rows = [];
   if(kind==='vehicles') rows = state.data.vehicles.map(v=>({RegNo:v.regNo,Name:v.name,Type:v.type,Capacity:v.capacityLabel,Odometer:v.odometer,AcqCost:v.acqCost,Status:v.status}));
   if(kind==='drivers') rows = state.data.drivers.map(d=>({Name:d.name,License:d.license,Category:d.category,Expiry:d.expiry,Contact:d.contact,Safety:d.safety,Status:d.status}));
-  if(kind==='trips') rows = state.data.trips.map(t=>({Trip:t.id,Source:t.source,Destination:t.destination,Vehicle:t.vehicleId?getVehicle(t.vehicleId).name:'',Driver:t.driverId?getDriver(t.driverId).name:'',Cargo:t.cargoWeight,Distance:t.distance,Status:t.status}));
+  if(kind==='trips') rows = state.data.trips.map(t=>({Trip:t.id,Source:t.source,Destination:t.destination,Vehicle:t.vehicleId?(getVehicle(t.vehicleId)?.name||''):'',Driver:t.driverId?(getDriver(t.driverId)?.name||''):'',Cargo:t.cargoWeight,Distance:t.distance,Status:t.status}));
   if(kind==='analytics') rows = state.data.vehicles.map(v=>({Vehicle:v.name,FuelCost:fuelCostFor(v.id),MaintenanceCost:maintenanceCostFor(v.id),Revenue:revenueFor(v.id)}));
   if(!rows.length){ showToast('Nothing to export yet.','err'); return; }
   downloadCsv(`transitops_${kind}.csv`, toCsv(rows));
