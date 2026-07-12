@@ -292,10 +292,104 @@
     .modal-actions{flex-direction:column-reverse;}
     .modal-actions .btn{width:100%;}
   }
+
+  /* ---------- NOTIFICATION CENTER ---------- */
+  .bell-wrap{position:relative;}
+  .bell-btn{
+    background:var(--panel-2);border:1px solid var(--border);border-radius:8px;width:36px;height:36px;
+    display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:16px;color:var(--text);position:relative;
+  }
+  .bell-btn:hover{background:var(--panel);}
+  .bell-badge{
+    position:absolute;top:-5px;right:-5px;background:var(--red);color:#fff;font-size:10px;font-weight:800;
+    min-width:16px;height:16px;border-radius:20px;display:flex;align-items:center;justify-content:center;padding:0 4px;
+    border:2px solid var(--bg);
+  }
+  .notif-dropdown{
+    position:absolute;top:46px;right:0;width:340px;max-height:420px;overflow-y:auto;background:var(--panel);
+    border:1px solid var(--border);border-radius:10px;box-shadow:var(--shadow);z-index:120;animation:slidein .15s ease;
+  }
+  .notif-head{padding:12px 14px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;}
+  .notif-head b{font-size:13px;}
+  .notif-item{padding:11px 14px;border-bottom:1px solid var(--border-soft);cursor:pointer;transition:background .1s;}
+  .notif-item:hover{background:var(--panel-2);}
+  .notif-item:last-child{border-bottom:none;}
+  .notif-row{display:flex;align-items:center;gap:8px;margin-bottom:3px;}
+  .notif-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0;}
+  .notif-dot.danger{background:var(--red);}
+  .notif-dot.warning{background:var(--orange);}
+  .notif-dot.success{background:var(--green);}
+  .notif-title{font-size:12.5px;font-weight:700;color:var(--text);}
+  .notif-sub{font-size:11.5px;color:var(--text-dim);margin-left:15px;}
+  .notif-prio{font-size:9.5px;font-weight:800;text-transform:uppercase;letter-spacing:.4px;padding:2px 7px;border-radius:20px;margin-left:auto;}
+  .notif-prio.High{background:var(--red-bg);color:var(--red);}
+  .notif-prio.Medium{background:var(--orange-bg);color:var(--orange);}
+  .notif-prio.Low{background:var(--panel-2);color:var(--text-faint);border:1px solid var(--border);}
+  .notif-empty{padding:30px 14px;text-align:center;color:var(--text-faint);font-size:12.5px;}
+  .notif-foot{padding:9px 14px;text-align:center;border-top:1px solid var(--border);}
+
+  /* ---------- DOCUMENTS ---------- */
+  .doc-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+  .doc-card{background:var(--panel-2);border:1px solid var(--border);border-radius:8px;padding:12px;}
+  .doc-card-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;}
+  .doc-card-head b{font-size:12.5px;}
+  .doc-status{display:inline-flex;align-items:center;gap:5px;font-size:10.5px;font-weight:700;padding:3px 8px;border-radius:20px;}
+  .doc-status.valid{background:var(--green-bg);color:var(--green);}
+  .doc-status.soon{background:var(--orange-bg);color:var(--orange);}
+  .doc-status.expired{background:var(--red-bg);color:var(--red);}
+  .doc-status.none{background:var(--panel);color:var(--text-faint);border:1px solid var(--border);}
+  .doc-meta{font-size:11px;color:var(--text-faint);margin-bottom:8px;}
+  .doc-actions{display:flex;gap:6px;flex-wrap:wrap;}
+  .doc-actions .link-btn{font-size:11px;}
+  .doc-count-pill{font-size:10.5px;color:var(--text-dim);border:1px solid var(--border);padding:2px 8px;border-radius:20px;margin-left:8px;}
+
+  /* ---------- CHARTS ---------- */
+  .chart-card{background:var(--panel-2);border:1px solid var(--border);border-radius:8px;padding:14px;}
+  .chart-card canvas{max-height:220px;}
+  .analytics-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-bottom:18px;}
+  @media (max-width:1000px){.analytics-grid{grid-template-columns:1fr;}}
+  .gauge-wrap{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:10px 0;}
+  .gauge-val{font-size:26px;font-weight:700;font-family:'Space Grotesk',sans-serif;margin-top:-56px;color:var(--text);}
+  .gauge-lbl{font-size:11.5px;color:var(--text-faint);margin-top:6px;}
+
+  /* ---------- ANIMATIONS ---------- */
+  @keyframes fadeUp{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:translateY(0);}}
+  .kpi,.panel,.chart-card,.doc-card{animation:fadeUp .35s ease both;}
+  .kpi:nth-child(2){animation-delay:.03s;} .kpi:nth-child(3){animation-delay:.06s;} .kpi:nth-child(4){animation-delay:.09s;}
+  .kpi:nth-child(5){animation-delay:.12s;} .kpi:nth-child(6){animation-delay:.15s;} .kpi:nth-child(7){animation-delay:.18s;}
+  .btn,.navitem,.link-btn,.doc-card,.notif-item{transition:all .15s ease;}
+  .kpi:hover,.panel:hover,.chart-card:hover{border-color:var(--accent);}
+
+  /* ---------- SKELETON LOADER ---------- */
+  @keyframes shimmer{0%{background-position:-200px 0;}100%{background-position:200px 0;}}
+  .skel{background:linear-gradient(90deg,var(--panel-2) 25%,var(--border-soft) 37%,var(--panel-2) 63%);
+    background-size:400px 100%;animation:shimmer 1.2s infinite linear;border-radius:6px;}
+  .skel-row{height:14px;margin:10px 0;}
+  .skel-kpi{height:70px;border-radius:var(--radius);}
+
+  /* ---------- LOADING SPINNER ---------- */
+  .spinner{width:16px;height:16px;border:2px solid var(--border);border-top-color:var(--accent);border-radius:50%;
+    animation:spin .6s linear infinite;display:inline-block;}
+  @keyframes spin{to{transform:rotate(360deg);}}
+  .btn.loading{opacity:.75;pointer-events:none;}
+
+  /* ---------- EMPTY STATE ILLUSTRATION ---------- */
+  .empty-state{padding:44px 20px;}
+  .empty-illustration{font-size:34px;opacity:.35;margin-bottom:10px;}
+
+  /* ---------- EMAIL PREVIEW ---------- */
+  .email-preview{background:var(--panel-2);border:1px solid var(--border);border-radius:8px;padding:16px;margin:14px 0;}
+  .email-field{font-size:11.5px;color:var(--text-faint);margin-bottom:2px;text-transform:uppercase;letter-spacing:.4px;}
+  .email-val{font-size:13px;color:var(--text);margin-bottom:10px;}
+  .email-body{font-size:13px;color:var(--text);line-height:1.7;white-space:pre-line;border-top:1px dashed var(--border);padding-top:10px;}
 </style>
 </head>
 <body data-theme="dark">
 <div id="app"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.2/jspdf.plugin.autotable.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.4/chart.umd.min.js"></script>
 
 <script>
 /* =========================================================
@@ -319,13 +413,43 @@ const RBAC = {
 };
 const ROLE_INITIALS = {'Fleet Manager':'FM','Dispatcher':'DP','Safety Officer':'SO','Financial Analyst':'FA'};
 
+const DOC_TYPES = ['RC','Insurance','Fitness Certificate','Pollution Certificate','Permit'];
+
 function seed(){
   return {
     vehicles: [
-      {id:'V1', regNo:'GJ01AB4562', name:'VAN-05', type:'Van', capacityKg:500, capacityLabel:'500 kg', odometer:74000, acqCost:620000, status:'Available'},
-      {id:'V2', regNo:'GJ01AB9987', name:'TRUCK-11', type:'Truck', capacityKg:5000, capacityLabel:'5 Ton', odometer:182000, acqCost:2450000, status:'On Trip'},
-      {id:'V3', regNo:'GJ01AB1120', name:'MINI-03', type:'Mini', capacityKg:1000, capacityLabel:'1 Ton', odometer:66000, acqCost:410000, status:'In Shop'},
-      {id:'V4', regNo:'GJ01AB0081', name:'VAN-09', type:'Van', capacityKg:750, capacityLabel:'750 kg', odometer:24900, acqCost:590000, status:'Retired'},
+      {id:'V1', regNo:'GJ01AB4562', name:'VAN-05', type:'Van', capacityKg:500, capacityLabel:'500 kg', odometer:74000, acqCost:620000, status:'Available',
+        documents:{
+          'RC':{number:'RC-VAN05-01', expiry:'2029-04-01', fileName:'rc_van05.pdf', fileData:null},
+          'Insurance':{number:'INS-88213', expiry:'2026-07-28', fileName:'insurance_van05.pdf', fileData:null},
+          'Fitness Certificate':{number:'FIT-4471', expiry:'2027-02-10', fileName:null, fileData:null},
+          'Pollution Certificate':{number:'PUC-9021', expiry:'2026-06-30', fileName:'puc_van05.pdf', fileData:null},
+          'Permit':{number:'PRM-2201', expiry:'2028-01-15', fileName:null, fileData:null},
+        }},
+      {id:'V2', regNo:'GJ01AB9987', name:'TRUCK-11', type:'Truck', capacityKg:5000, capacityLabel:'5 Ton', odometer:182000, acqCost:2450000, status:'On Trip',
+        documents:{
+          'RC':{number:'RC-TRK11-01', expiry:'2030-01-01', fileName:'rc_truck11.pdf', fileData:null},
+          'Insurance':{number:'INS-99871', expiry:'2027-03-12', fileName:'insurance_truck11.pdf', fileData:null},
+          'Fitness Certificate':{number:'FIT-1187', expiry:'2026-08-02', fileName:null, fileData:null},
+          'Pollution Certificate':{number:'PUC-3312', expiry:'2026-05-20', fileName:null, fileData:null},
+          'Permit':{number:'PRM-8890', expiry:'2027-09-09', fileName:'permit_truck11.pdf', fileData:null},
+        }},
+      {id:'V3', regNo:'GJ01AB1120', name:'MINI-03', type:'Mini', capacityKg:1000, capacityLabel:'1 Ton', odometer:66000, acqCost:410000, status:'In Shop',
+        documents:{
+          'RC':{number:'RC-MIN03-01', expiry:'2028-11-01', fileName:null, fileData:null},
+          'Insurance':{number:'INS-11209', expiry:'2026-08-05', fileName:null, fileData:null},
+          'Fitness Certificate':{number:'FIT-7743', expiry:'2027-01-01', fileName:null, fileData:null},
+          'Pollution Certificate':{number:'PUC-5561', expiry:'2028-02-01', fileName:null, fileData:null},
+          'Permit':{number:'PRM-4432', expiry:'2027-07-01', fileName:null, fileData:null},
+        }},
+      {id:'V4', regNo:'GJ01AB0081', name:'VAN-09', type:'Van', capacityKg:750, capacityLabel:'750 kg', odometer:24900, acqCost:590000, status:'Retired',
+        documents:{
+          'RC':{number:'RC-VAN09-01', expiry:'2027-06-01', fileName:null, fileData:null},
+          'Insurance':{number:'INS-00812', expiry:'2025-12-01', fileName:null, fileData:null},
+          'Fitness Certificate':{number:'FIT-2290', expiry:'2026-01-01', fileName:null, fileData:null},
+          'Pollution Certificate':{number:'PUC-6634', expiry:'2026-02-01', fileName:null, fileData:null},
+          'Permit':{number:'PRM-7712', expiry:'2026-03-01', fileName:null, fileData:null},
+        }},
     ],
     drivers: [
       {id:'D1', name:'Alex', license:'DL-88213', category:'LMV', expiry:'2028-12-01', contact:'9876500001', safety:96, tripsCompleted:12, status:'Available'},
@@ -368,6 +492,9 @@ let state = {
   toast:null,
   modal:null,
   navOpen:false,
+  notifOpen:false,
+  loading:false,
+  confirmCtx:null,
 };
 
 function setState(patch){ Object.assign(state, patch); render(); }
@@ -417,6 +544,65 @@ function fleetFuelEfficiency(){
   if(liters===0) return 0;
   return +(dist/liters).toFixed(1);
 }
+
+/* ---------------- documents & reminders ---------------- */
+function docStatus(expiry){
+  if(!expiry) return 'none';
+  const days = daysUntil(expiry);
+  if(days < 0) return 'expired';
+  if(days <= 30) return 'soon';
+  return 'valid';
+}
+function docStatusLabel(s){
+  return s==='valid'?'Valid':s==='soon'?'Expiring Soon':s==='expired'?'Expired':'Not Uploaded';
+}
+function vehicleDocAlerts(v){
+  return DOC_TYPES.map(dt=>{
+    const doc = v.documents && v.documents[dt];
+    if(!doc) return null;
+    const st = docStatus(doc.expiry);
+    if(st==='expired' || st==='soon') return {vehicle:v, docType:dt, doc, status:st, days:daysUntil(doc.expiry)};
+    return null;
+  }).filter(Boolean);
+}
+function allDocAlerts(){
+  let out = [];
+  state.data.vehicles.filter(v=>v.status!=='Retired').forEach(v=>{ out = out.concat(vehicleDocAlerts(v)); });
+  return out;
+}
+function allLicenseAlerts(){
+  return state.data.drivers.filter(d=> daysUntil(d.expiry) <= 30).map(d=>({driver:d, status: isExpired(d.expiry)?'expired':'soon', days:daysUntil(d.expiry)}));
+}
+function priorityFor(days){
+  if(days < 0 || days <= 7) return 'High';
+  if(days <= 15) return 'Medium';
+  return 'Low';
+}
+function computeNotifications(){
+  const notifs = [];
+  allLicenseAlerts().forEach(a=>{
+    notifs.push({
+      type: a.status==='expired' ? 'danger' : 'warning',
+      title: `Driver License ${a.status==='expired'?'Expired':'Expiring'}`,
+      vehicle: null, driver: a.driver.name,
+      days: a.days, priority: priorityFor(a.days),
+      context:{kind:'license', driverId:a.driver.id}
+    });
+  });
+  allDocAlerts().forEach(a=>{
+    notifs.push({
+      type: a.status==='expired' ? 'danger' : 'warning',
+      title: `${a.docType} ${a.status==='expired'?'Expired':'Expiring'}`,
+      vehicle: a.vehicle.name, driver: null,
+      days: a.days, priority: priorityFor(a.days),
+      context:{kind:'document', vehicleId:a.vehicle.id, docType:a.docType}
+    });
+  });
+  notifs.sort((a,b)=>a.days-b.days);
+  return notifs;
+}
+function toggleNotif(){ state.notifOpen = !state.notifOpen; render(); }
+function closeNotif(){ state.notifOpen = false; }
 
 /* ================= RENDER: ROOT ================= */
 function render(){
@@ -541,7 +727,9 @@ function renderShell(){
     analytics:'6. Reports & Analytics', settings:'7. Settings & RBAC'};
 
   let body = '';
-  if(state.view==='dashboard') body = viewDashboard();
+  if(state.loading){
+    body = skeletonBody();
+  } else if(state.view==='dashboard') body = viewDashboard();
   else if(state.view==='fleet') body = viewFleet();
   else if(state.view==='drivers') body = viewDrivers();
   else if(state.view==='trips') body = viewTrips();
@@ -551,7 +739,7 @@ function renderShell(){
   else if(state.view==='settings') body = viewSettings();
 
   return `
-  <div class="shell">
+  <div class="shell" onclick="if(state.notifOpen){state.notifOpen=false;render();}">
     <div class="sidebar-scrim ${state.navOpen?'open':''}" onclick="closeNav()"></div>
     <div class="sidebar ${state.navOpen?'open':''}">
       <div class="brand">TransitOps</div>
@@ -566,6 +754,7 @@ function renderShell(){
         <div class="hamburger" onclick="toggleNav()">☰</div>
         <div class="search-box">🔍 <input placeholder="Search…" value="${state.search}" oninput="onSearch(this.value)"></div>
         <div class="topbar-right">
+          ${renderNotifBell()}
           <div class="theme-toggle" onclick="toggleTheme()"><div class="knob"></div></div>
           <div class="user-chip">${state.user.name}</div>
           <div class="role-badge"><div class="avatar">${ROLE_INITIALS[state.user.role]}</div><span>${state.user.role}</span></div>
@@ -578,7 +767,93 @@ function renderShell(){
     </div>
   </div>`;
 }
-function goTo(view){ state.view = view; state.search=''; state.navOpen=false; render(); }
+
+function renderNotifBell(){
+  const notifs = computeNotifications();
+  return `
+  <div class="bell-wrap">
+    <div class="bell-btn" onclick="event.stopPropagation();toggleNotif()">🔔${notifs.length? `<span class="bell-badge">${notifs.length>9?'9+':notifs.length}</span>`:''}</div>
+    ${state.notifOpen? `
+    <div class="notif-dropdown" onclick="event.stopPropagation()">
+      <div class="notif-head"><b>Notifications</b><span class="doc-count-pill">${notifs.length} alert${notifs.length===1?'':'s'}</span></div>
+      ${notifs.length? notifs.map((n,i)=>`
+        <div class="notif-item" onclick="openNotifDetail(${i})">
+          <div class="notif-row">
+            <span class="notif-dot ${n.type}"></span>
+            <span class="notif-title">${n.title}</span>
+            <span class="notif-prio ${n.priority}">${n.priority}</span>
+          </div>
+          <div class="notif-sub">${n.vehicle? 'Vehicle: '+n.vehicle+' · ':''}${n.driver? 'Driver: '+n.driver+' · ':''}${n.days<0? Math.abs(n.days)+' day(s) overdue' : n.days+' day(s) left'}</div>
+        </div>`).join('') : `<div class="notif-empty">🎉 No pending alerts. Everything is up to date.</div>`}
+      ${notifs.length? `<div class="notif-foot"><button class="link-btn" onclick="goTo('dashboard');closeNotifAndRender();">View Reminder Dashboard</button></div>`:''}
+    </div>`:''}
+  </div>`;
+}
+function closeNotifAndRender(){ state.notifOpen=false; render(); }
+function openNotifDetail(i){
+  const notifs = computeNotifications();
+  const n = notifs[i];
+  if(!n) return;
+  state.notifOpen = false;
+  if(n.context.kind==='license'){ openEmailModal({kind:'license', driverId:n.context.driverId}); }
+  else { openEmailModal({kind:'document', vehicleId:n.context.vehicleId, docType:n.context.docType}); }
+}
+function openEmailModal(ctx){
+  let subjectDetail = '', bodyDetail = '', recipient = '';
+  if(ctx.kind==='license'){
+    const d = getDriver(ctx.driverId);
+    subjectDetail = `Driver License Renewal — ${d.name}`;
+    bodyDetail = `Your Driver License / Vehicle Document is about to expire.`;
+    recipient = `${d.name.toLowerCase().replace(/\s+/g,'.')}@transitops.in`;
+  } else {
+    const v = getVehicle(ctx.vehicleId);
+    subjectDetail = `${ctx.docType} Renewal — ${v.name}`;
+    bodyDetail = `Your Driver License / Vehicle Document is about to expire.`;
+    recipient = `fleet.ops@transitops.in`;
+  }
+  state.modal = {html:`
+    <div class="modal-bg" onclick="if(event.target===this) closeModal()">
+      <div class="modal" style="width:460px;">
+        <h3>📧 Email Reminder</h3>
+        <p class="sub">Demo mode — preview or simulate sending this reminder.</p>
+        <div class="email-preview">
+          <div class="email-field">To</div><div class="email-val mono">${recipient}</div>
+          <div class="email-field">Subject</div><div class="email-val">${subjectDetail}</div>
+          <div class="email-body">Hello,
+
+${bodyDetail}
+
+Please renew before expiry.
+
+Regards,
+TransitOps</div>
+        </div>
+        <div class="modal-actions">
+          <button class="btn secondary" onclick="closeModal()">Close</button>
+          <button class="btn" onclick="sendEmailDemo()">Send Email</button>
+        </div>
+      </div>
+    </div>`};
+  render();
+}
+function sendEmailDemo(){
+  closeModal();
+  showToast('Reminder email sent (demo mode).','ok');
+}
+
+function skeletonBody(){
+  return `
+  <div class="kpi-row">
+    ${Array(4).fill(0).map(()=>`<div class="skel skel-kpi"></div>`).join('')}
+  </div>
+  <div class="panel">
+    ${Array(5).fill(0).map(()=>`<div class="skel skel-row"></div>`).join('')}
+  </div>`;
+}
+function goTo(view){
+  state.view = view; state.search=''; state.navOpen=false; state.loading=true; render();
+  setTimeout(()=>{ state.loading=false; render(); }, 300);
+}
 function onSearch(v){ state.search = v; render(); }
 function toggleTheme(){ state.theme = state.theme==='dark'?'light':'dark'; render(); }
 function toggleNav(){ state.navOpen = !state.navOpen; render(); }
@@ -634,8 +909,21 @@ function viewDashboard(){
   v.forEach(x=>statusCounts[x.status]++);
   const maxCount = Math.max(1, ...Object.values(statusCounts));
 
+  const licenseAlerts = allLicenseAlerts();
+  const docAlerts = allDocAlerts();
+  const expiringLicenses = licenseAlerts.filter(a=>a.status==='soon').length;
+  const expiringDocs = docAlerts.filter(a=>a.status==='soon').length;
+  const expiredDocs = docAlerts.filter(a=>a.status==='expired').length + licenseAlerts.filter(a=>a.status==='expired').length;
+  const totalAlerts = licenseAlerts.length + docAlerts.length;
+
   return `
   ${expiring.length? `<div class="banner">⚠ ${expiring.length} driver license(s) expiring within 60 days — reminder queued for Safety Officer review.</div>`:''}
+  <div class="kpi-row" style="grid-template-columns:repeat(4,1fr);margin-bottom:16px;">
+    <div class="kpi orange" style="cursor:pointer;" onclick="openReminderList('licenses')"><label>Expiring Licenses</label><div class="val">${expiringLicenses}</div></div>
+    <div class="kpi orange" style="cursor:pointer;" onclick="openReminderList('documents')"><label>Expiring Documents</label><div class="val">${expiringDocs}</div></div>
+    <div class="kpi" style="cursor:pointer;border-left-color:var(--red);" onclick="openReminderList('expired')"><label>Expired Documents</label><div class="val">${expiredDocs}</div></div>
+    <div class="kpi green" style="cursor:pointer;" onclick="openReminderList('all')"><label>Total Alerts</label><div class="val">${totalAlerts}</div></div>
+  </div>
   <div class="toolbar">
     <span style="font-size:12px;color:var(--text-faint);">FILTERS</span>
     <select onchange="setFilter('vehicleType',this.value)">
@@ -682,6 +970,42 @@ function viewDashboard(){
 }
 function setFilter(k,v){ state.filters[k]=v; render(); }
 
+function openReminderList(kind){
+  const licenseAlerts = allLicenseAlerts();
+  const docAlerts = allDocAlerts();
+  let items = [];
+  let title = '';
+  if(kind==='licenses'){ title='Expiring Licenses'; items = licenseAlerts.filter(a=>a.status==='soon').map(a=>({label:a.driver.name, sub:`License · ${a.days} day(s) left`, ctx:{kind:'license', driverId:a.driver.id}})); }
+  else if(kind==='documents'){ title='Expiring Documents'; items = docAlerts.filter(a=>a.status==='soon').map(a=>({label:`${a.vehicle.name} — ${a.docType}`, sub:`${a.days} day(s) left`, ctx:{kind:'document', vehicleId:a.vehicle.id, docType:a.docType}})); }
+  else if(kind==='expired'){ title='Expired Documents & Licenses';
+    items = [
+      ...licenseAlerts.filter(a=>a.status==='expired').map(a=>({label:a.driver.name, sub:`License · expired ${Math.abs(a.days)} day(s) ago`, ctx:{kind:'license', driverId:a.driver.id}})),
+      ...docAlerts.filter(a=>a.status==='expired').map(a=>({label:`${a.vehicle.name} — ${a.docType}`, sub:`Expired ${Math.abs(a.days)} day(s) ago`, ctx:{kind:'document', vehicleId:a.vehicle.id, docType:a.docType}})),
+    ];
+  } else {
+    title='All Alerts';
+    items = [
+      ...licenseAlerts.map(a=>({label:a.driver.name, sub:`License · ${a.status==='expired'?'expired '+Math.abs(a.days)+' day(s) ago':a.days+' day(s) left'}`, ctx:{kind:'license', driverId:a.driver.id}})),
+      ...docAlerts.map(a=>({label:`${a.vehicle.name} — ${a.docType}`, sub:a.status==='expired'?`Expired ${Math.abs(a.days)} day(s) ago`:`${a.days} day(s) left`, ctx:{kind:'document', vehicleId:a.vehicle.id, docType:a.docType}})),
+    ];
+  }
+  state.modal = {html:`
+    <div class="modal-bg" onclick="if(event.target===this) closeModal()">
+      <div class="modal" style="width:460px;max-height:80vh;overflow-y:auto;">
+        <h3>${title}</h3>
+        <p class="sub">${items.length} item(s) requiring attention.</p>
+        ${items.length? items.map(it=>`
+          <div class="doc-card" style="margin-bottom:8px;">
+            <div class="doc-card-head"><b>${it.label}</b></div>
+            <div class="doc-meta">${it.sub}</div>
+            <div class="doc-actions"><button class="link-btn" onclick='openEmailModal(${JSON.stringify(it.ctx)})'>✉ Send Reminder</button></div>
+          </div>`).join('') : `<div class="empty-state"><div class="empty-illustration">✅</div>Nothing here — all clear.</div>`}
+        <div class="modal-actions"><button class="btn secondary" onclick="closeModal()">Close</button></div>
+      </div>
+    </div>`};
+  render();
+}
+
 /* ================= FLEET (Vehicle Registry) ================= */
 function viewFleet(){
   const editable = canEdit('fleet');
@@ -703,6 +1027,7 @@ function viewFleet(){
     </select>
     <div class="spacer"></div>
     <button class="btn ghost" onclick="exportCsv('vehicles')">⇩ Export CSV</button>
+    <button class="btn ghost" onclick="exportPdf('vehicles')">📄 Export PDF</button>
     ${editable? `<button class="btn" onclick="openVehicleModal()">+ Add Vehicle</button>` : `<span class="view-only-tag">View only — Fleet Manager can edit</span>`}
   </div>
   <div class="panel" style="padding:0;overflow-x:auto;">
@@ -715,8 +1040,10 @@ function viewFleet(){
         ${sortTh('fleet','odometer','Odometer')}
         ${sortTh('fleet','acqCost','Acq. Cost')}
         ${sortTh('fleet','status','Status')}
-        <th>Ops Cost</th>${editable?'<th></th>':''}</tr>
-      ${rows.length? rows.map(v=>`
+        <th>Ops Cost</th><th>Documents</th>${editable?'<th></th>':''}</tr>
+      ${rows.length? rows.map(v=>{
+        const ds = docSummaryFor(v);
+        return `
         <tr>
           <td class="mono">${v.regNo}</td>
           <td>${v.name}</td>
@@ -726,323 +1053,112 @@ function viewFleet(){
           <td>${fmtMoney(v.acqCost)}</td>
           <td><span class="${badgeClass(v.status)}">${v.status}</span></td>
           <td>${fmtMoney(maintenanceCostFor(v.id)+fuelCostFor(v.id))}</td>
+          <td><button class="link-btn" onclick="openDocsModal('${v.id}')">${ds.expired>0?'⚠ ':''}${ds.valid}/${ds.total} valid<span class="doc-count-pill">${ds.expired>0?ds.expired+' expired':ds.soon>0?ds.soon+' soon':'ok'}</span></button></td>
           ${editable? `<td class="actions-cell">
             <button class="link-btn" onclick="openVehicleModal('${v.id}')">Edit</button>
             ${v.status!=='Retired' ? `<button class="link-btn" onclick="retireVehicle('${v.id}')">Retire</button>`:''}
-            ${v.status==='Available'||v.status==='Retired' ? `<button class="link-btn" style="color:var(--red);" onclick="deleteVehicle('${v.id}')">Delete</button>`:''}
+            ${v.status==='Available'||v.status==='Retired' ? `<button class="link-btn" style="color:var(--red);" onclick="confirmDeleteVehicle('${v.id}')">Delete</button>`:''}
           </td>`:''}
-        </tr>`).join('') : `<tr><td colspan="9"><div class="empty-state">No vehicles match your filters.</div></td></tr>`}
+        </tr>`;}).join('') : `<tr><td colspan="10"><div class="empty-state"><div class="empty-illustration">🚚</div>No vehicles match your filters.</div></td></tr>`}
     </table>
   </div>
   <div class="rule-note">Rule: Registration No. must be unique · Retired/In Shop vehicles are hidden from Trip Dispatch.</div>
   `;
 }
 
-function openVehicleModal(editId){
-  const v = editId ? getVehicle(editId) : null;
-  const isTon = v && v.capacityLabel && v.capacityLabel.includes('Ton');
-  const capVal = v ? (isTon ? v.capacityKg/1000 : v.capacityKg) : '';
-  state.modal = {html: `
+/* ---------------- vehicle documents module ---------------- */
+function docSummaryFor(v){
+  const docs = v.documents || {};
+  let valid=0, soon=0, expired=0, none=0;
+  DOC_TYPES.forEach(dt=>{
+    const doc = docs[dt];
+    if(!doc || !doc.expiry){ none++; return; }
+    const st = docStatus(doc.expiry);
+    if(st==='valid') valid++; else if(st==='soon') soon++; else if(st==='expired') expired++;
+  });
+  return {valid, soon, expired, none, total: DOC_TYPES.length};
+}
+function openDocsModal(vehicleId){
+  const v = getVehicle(vehicleId);
+  const editable = canEdit('fleet');
+  const ds = docSummaryFor(v);
+  state.modal = {html:`
     <div class="modal-bg" onclick="if(event.target===this) closeModal()">
-      <div class="modal">
-        <h3>${v?'Edit Vehicle':'Add Vehicle'}</h3>
-        <p class="sub">${v? 'Update this vehicle&#39;s registry details.' : 'Register a new vehicle to the fleet.'}</p>
-        <div class="fieldset">
-          <div><label>Registration No.</label><input id="mRegNo" placeholder="GJ01AB1234" value="${v?v.regNo:''}"></div>
-          <div><label>Name / Model</label><input id="mName" placeholder="VAN-06" value="${v?v.name:''}"></div>
-          <div><label>Type</label>
-            <select id="mType">${['Van','Truck','Mini','Bike'].map(t=>`<option ${v&&v.type===t?'selected':''}>${t}</option>`).join('')}</select>
-          </div>
-          <div><label>Status</label>
-            <select id="mStatus">${['Available','In Shop','On Trip','Retired'].map(s=>`<option ${v&&v.status===s?'selected':''}>${s}</option>`).join('')}</select>
-          </div>
-          <div><label>Max Load Capacity</label><input id="mCap" type="number" placeholder="500" value="${capVal}"></div>
-          <div><label>Unit</label><select id="mCapUnit"><option value="kg" ${!isTon?'selected':''}>kg</option><option value="ton" ${isTon?'selected':''}>Ton</option></select></div>
-          <div><label>Odometer (km)</label><input id="mOdo" type="number" placeholder="0" value="${v?v.odometer:''}"></div>
-          <div><label>Acquisition Cost (₹)</label><input id="mAcq" type="number" placeholder="500000" value="${v?v.acqCost:''}"></div>
+      <div class="modal" style="width:560px;max-height:85vh;overflow-y:auto;">
+        <h3>📁 Vehicle Documents — ${v.name}</h3>
+        <p class="sub">${v.regNo} · ${ds.valid}/${ds.total} documents valid<span class="doc-count-pill">${ds.expired>0?ds.expired+' expired':ds.soon>0?ds.soon+' expiring soon':'all clear'}</span></p>
+        ${ds.expired>0? `<div class="banner">⚠ ${ds.expired} document(s) have expired for this vehicle. Renew immediately to avoid compliance issues.</div>`:''}
+        <div class="doc-grid">
+          ${DOC_TYPES.map(dt=>renderDocCard(v, dt, editable)).join('')}
         </div>
-        <div class="modal-actions">
-          <button class="btn secondary" onclick="closeModal()">Cancel</button>
-          <button class="btn" onclick="saveVehicle(${v?`'${v.id}'`:'null'})">${v?'Save Changes':'Save Vehicle'}</button>
-        </div>
+        <div class="modal-actions"><button class="btn secondary" onclick="closeModal()">Close</button></div>
       </div>
     </div>`};
   render();
 }
-function closeModal(){ state.modal = null; render(); }
-function saveVehicle(editId){
-  const regNo = document.getElementById('mRegNo').value.trim().toUpperCase();
-  const name = document.getElementById('mName').value.trim();
-  const type = document.getElementById('mType').value;
-  const status = document.getElementById('mStatus').value;
-  const cap = Number(document.getElementById('mCap').value);
-  const unit = document.getElementById('mCapUnit').value;
-  const odo = Number(document.getElementById('mOdo').value)||0;
-  const acq = Number(document.getElementById('mAcq').value)||0;
-  if(!regNo || !name || !cap){ showToast('Please fill registration no., name, and capacity.','err'); return; }
-  if(state.data.vehicles.some(v=>v.regNo===regNo && v.id!==editId)){ showToast('Registration number must be unique — this one already exists.','err'); return; }
-  const capacityKg = unit==='ton'? cap*1000 : cap;
-  const capacityLabel = unit==='ton' ? `${cap} Ton` : `${cap} kg`;
-  if(editId){
-    const v = getVehicle(editId);
-    Object.assign(v, {regNo, name, type, capacityKg, capacityLabel, odometer:odo, acqCost:acq, status});
-    showToast('Vehicle updated.','ok');
-  } else {
-    state.data.vehicles.push({id:uid('V'), regNo, name, type, capacityKg, capacityLabel, odometer:odo, acqCost:acq, status});
-    showToast('Vehicle added to fleet.','ok');
-  }
-  closeModal();
-}
-function retireVehicle(id){
-  const v = getVehicle(id);
-  if(v.status==='On Trip'){ showToast('Cannot retire a vehicle that is currently On Trip.','err'); return; }
-  v.status='Retired';
-  render();
-  showToast(`${v.name} marked Retired.`,'ok');
-}
-function deleteVehicle(id){
-  const v = getVehicle(id);
-  if(state.data.trips.some(t=>t.vehicleId===id && (t.status==='Draft'||t.status==='Dispatched'))){
-    showToast('Cannot delete a vehicle linked to an active trip.','err'); return;
-  }
-  state.data.vehicles = state.data.vehicles.filter(x=>x.id!==id);
-  render();
-  showToast(`${v.name} removed from registry.`,'ok');
-}
-
-/* ================= DRIVERS ================= */
-function viewDrivers(){
-  const editable = canEdit('drivers');
-  let rows = searchFilter(state.data.drivers, ['name','license','category']);
-  rows = applySort('drivers', rows);
+function renderDocCard(v, docType, editable){
+  const doc = (v.documents && v.documents[docType]) || {number:'', expiry:'', fileName:null, fileData:null};
+  const st = docStatus(doc.expiry);
+  const inputId = 'docfile_'+v.id+'_'+docType.replace(/\s+/g,'');
   return `
-  <div class="toolbar">
-    <div class="spacer"></div>
-    <button class="btn ghost" onclick="exportCsv('drivers')">⇩ Export CSV</button>
-    ${editable? `<button class="btn" onclick="openDriverModal()">+ Add Driver</button>`: `<span class="view-only-tag">View only</span>`}
-  </div>
-  <div class="panel" style="padding:0;overflow-x:auto;">
-    <table>
-      <tr>
-        ${sortTh('drivers','name','Driver')}
-        ${sortTh('drivers','license','License No.')}
-        ${sortTh('drivers','category','Category')}
-        ${sortTh('drivers','expiry','Expiry')}
-        <th>Contact</th>
-        ${sortTh('drivers','tripsCompleted','Trips')}
-        ${sortTh('drivers','safety','Safety')}
-        ${sortTh('drivers','status','Status')}
-        ${editable?'<th></th>':''}</tr>
-      ${rows.map(d=>{
-        const expired = isExpired(d.expiry);
-        return `<tr>
-          <td>${d.name}</td>
-          <td class="mono">${d.license}</td>
-          <td>${d.category}</td>
-          <td>${fmtDate(d.expiry)} ${expired?'<span class="badge EXPIRED" style="margin-left:6px;">EXPIRED</span>':''}</td>
-          <td class="mono">${d.contact}</td>
-          <td>${d.tripsCompleted}</td>
-          <td><span class="${badgeClass(d.safety>=90?'Available':d.safety>=70?'On.Trip':'Suspended')}">${d.safety}%</span></td>
-          <td><span class="${badgeClass(d.status)}">${d.status}</span></td>
-          ${editable? `<td class="actions-cell">
-            <select onchange="toggleDriverStatus('${d.id}', this.value)" ${d.status==='On Trip'?'disabled':''}>
-              <option value="">Set status…</option>
-              <option value="Available">Available</option>
-              <option value="Off Duty">Off Duty</option>
-              <option value="Suspended">Suspended</option>
-            </select>
-            <button class="link-btn" onclick="openDriverModal('${d.id}')">Edit</button>
-            ${d.status!=='On Trip'? `<button class="link-btn" style="color:var(--red);" onclick="deleteDriver('${d.id}')">Delete</button>`:''}
-          </td>`:''}
-        </tr>`;
-      }).join('')}
-    </table>
-  </div>
-  <div class="rule-note">Rule: Expired license or Suspended status → blocked from trip assignment.</div>
-  `;
+  <div class="doc-card">
+    <div class="doc-card-head">
+      <b>${docType}</b>
+      <span class="doc-status ${st}">${docStatusLabel(st)}</span>
+    </div>
+    <div class="doc-meta">${doc.number? 'No: '+doc.number+' · ':''}Expiry: ${doc.expiry? fmtDate(doc.expiry):'—'}</div>
+    <div class="doc-meta">${doc.fileName? '📎 '+doc.fileName : 'No file uploaded'}</div>
+    <div class="doc-actions">
+      ${doc.fileName? `<button class="link-btn" onclick="previewDoc('${v.id}','${docType}')">Preview</button>
+        <button class="link-btn" onclick="downloadDoc('${v.id}','${docType}')">Download</button>`:''}
+      ${editable? `
+        <input type="file" id="${inputId}" style="display:none;" accept="image/*,application/pdf" onchange="handleDocUpload('${v.id}','${docType}',this)">
+        <button class="link-btn" onclick="document.getElementById('${inputId}').click()">${doc.fileName?'Replace':'Upload'}</button>
+        <button class="link-btn" onclick="openDocEditModal('${v.id}','${docType}')">Edit Details</button>
+        ${doc.fileName? `<button class="link-btn" style="color:var(--red);" onclick="deleteDoc('${v.id}','${docType}')">Delete</button>`:''}
+      `:''}
+    </div>
+  </div>`;
 }
-function toggleDriverStatus(id, val){
-  if(!val) return;
-  const d = getDriver(id);
-  d.status = val;
-  render();
-  showToast(`${d.name}'s status set to ${val}.`,'ok');
+function handleDocUpload(vehicleId, docType, input){
+  const file = input.files[0];
+  if(!file) return;
+  const reader = new FileReader();
+  reader.onload = function(e){
+    const v = getVehicle(vehicleId);
+    if(!v.documents) v.documents = {};
+    if(!v.documents[docType]) v.documents[docType] = {number:'', expiry:'', fileName:null, fileData:null};
+    v.documents[docType].fileName = file.name;
+    v.documents[docType].fileData = e.target.result;
+    showToast(`${docType} uploaded for ${v.name}.`,'ok');
+    openDocsModal(vehicleId);
+  };
+  reader.readAsDataURL(file);
 }
-function openDriverModal(editId){
-  const d = editId ? getDriver(editId) : null;
-  state.modal = {html:`
-    <div class="modal-bg" onclick="if(event.target===this) closeModal()">
-      <div class="modal">
-        <h3>${d?'Edit Driver':'Add Driver'}</h3>
-        <p class="sub">${d? 'Update this driver&#39;s safety profile.' : 'Create a new driver safety profile.'}</p>
-        <div class="fieldset">
-          <div class="full"><label>Full Name</label><input id="dName" placeholder="e.g. Meera" value="${d?d.name:''}"></div>
-          <div><label>License No.</label><input id="dLic" placeholder="DL-XXXXX" value="${d?d.license:''}"></div>
-          <div><label>Category</label><select id="dCat"><option ${d&&d.category==='LMV'?'selected':''}>LMV</option><option ${d&&d.category==='HMV'?'selected':''}>HMV</option></select></div>
-          <div><label>License Expiry</label><input id="dExp" type="date" value="${d?d.expiry:'2028-01-01'}"></div>
-          <div><label>Contact Number</label><input id="dContact" placeholder="98xxxxxxxx" value="${d?d.contact:''}"></div>
-          <div><label>Safety Score (%)</label><input id="dSafety" type="number" min="0" max="100" value="${d?d.safety:100}"></div>
-        </div>
-        <div class="modal-actions">
-          <button class="btn secondary" onclick="closeModal()">Cancel</button>
-          <button class="btn" onclick="saveDriver(${d?`'${d.id}'`:'null'})">${d?'Save Changes':'Save Driver'}</button>
-        </div>
-      </div>
-    </div>`};
-  render();
-}
-function saveDriver(editId){
-  const name = document.getElementById('dName').value.trim();
-  const license = document.getElementById('dLic').value.trim().toUpperCase();
-  const category = document.getElementById('dCat').value;
-  const expiry = document.getElementById('dExp').value;
-  const contact = document.getElementById('dContact').value.trim();
-  const safety = Math.max(0, Math.min(100, Number(document.getElementById('dSafety').value)||0));
-  if(!name || !license || !expiry){ showToast('Please fill name, license number, and expiry.','err'); return; }
-  if(editId){
-    Object.assign(getDriver(editId), {name, license, category, expiry, contact, safety});
-    showToast('Driver profile updated.','ok');
+function previewDoc(vehicleId, docType){
+  const v = getVehicle(vehicleId);
+  const doc = v.documents[docType];
+  if(!doc || !doc.fileData){ showToast('No file to preview.','err'); return; }
+  const w = window.open();
+  if(doc.fileData.startsWith('data:image')){
+    w.document.write(`<title>${docType} — ${v.name}</title><body style="margin:0;background:#111;"><img src="${doc.fileData}" style="max-width:100%;display:block;margin:0 auto;"></body>`);
   } else {
-    state.data.drivers.push({id:uid('D'), name, license, category, expiry, contact, safety, tripsCompleted:0, status:'Available'});
-    showToast('Driver profile created.','ok');
+    w.location = doc.fileData;
   }
-  closeModal();
 }
-function deleteDriver(id){
-  const d = getDriver(id);
-  if(state.data.trips.some(t=>t.driverId===id && (t.status==='Draft'||t.status==='Dispatched'))){
-    showToast('Cannot delete a driver linked to an active trip.','err'); return;
-  }
-  state.data.drivers = state.data.drivers.filter(x=>x.id!==id);
-  render();
-  showToast(`${d.name}'s profile removed.`,'ok');
+function downloadDoc(vehicleId, docType){
+  const v = getVehicle(vehicleId);
+  const doc = v.documents[docType];
+  if(!doc || !doc.fileData){ showToast('No file to download.','err'); return; }
+  const a = document.createElement('a');
+  a.href = doc.fileData; a.download = doc.fileName || (docType+'.pdf'); a.click();
 }
-
-/* ================= TRIPS ================= */
-function viewTrips(){
-  const editable = canEdit('trips');
-  let rows = searchFilter(state.data.trips, ['id','source','destination']);
-  rows = applySort('trips', rows);
-  return `
-  <div class="toolbar">
-    <div class="spacer"></div>
-    <button class="btn ghost" onclick="exportCsv('trips')">⇩ Export CSV</button>
-    ${editable? `<button class="btn" onclick="openTripModal()">+ Create Trip</button>`: `<span class="view-only-tag">View only</span>`}
-  </div>
-  <div class="panel" style="padding:0;overflow-x:auto;">
-    <table>
-      <tr>
-        ${sortTh('trips','id','Trip')}
-        <th>Route</th><th>Vehicle</th><th>Driver</th>
-        ${sortTh('trips','cargoWeight','Cargo')}
-        ${sortTh('trips','distance','Distance')}
-        ${sortTh('trips','status','Status')}
-        ${editable?'<th>Actions</th>':''}</tr>
-      ${rows.map(t=>`
-        <tr>
-          <td class="mono">${t.id}</td>
-          <td>${t.source} → ${t.destination}</td>
-          <td>${t.vehicleId? getVehicle(t.vehicleId).name : '<i style="color:var(--text-faint);">unassigned</i>'}</td>
-          <td>${t.driverId? getDriver(t.driverId).name : '<i style="color:var(--text-faint);">unassigned</i>'}</td>
-          <td>${t.cargoWeight} kg</td>
-          <td>${t.distance} km</td>
-          <td><span class="${badgeClass(t.status)}">${t.status}</span></td>
-          ${editable? `<td class="actions-cell">
-            ${t.status==='Draft' && t.vehicleId && t.driverId? `<button class="link-btn" onclick="dispatchTrip('${t.id}')">Dispatch</button>`:''}
-            ${t.status==='Draft' && (!t.vehicleId || !t.driverId)? `<button class="link-btn" onclick="assignTrip('${t.id}')">Assign</button>`:''}
-            ${t.status==='Dispatched'? `<button class="link-btn" onclick="openCompleteModal('${t.id}')">Complete</button>`:''}
-            ${(t.status==='Draft'||t.status==='Dispatched')? `<button class="link-btn" style="color:var(--red);" onclick="cancelTrip('${t.id}')">Cancel</button>`:''}
-          </td>`:''}
-        </tr>`).join('')}
-    </table>
-  </div>
-  <div class="rule-note">Rule: Cargo weight must not exceed vehicle capacity. Vehicle/driver already On Trip cannot be reassigned.</div>
-  `;
-}
-
-function openTripModal(){
-  const vOpts = dispatchableVehicles().map(v=>`<option value="${v.id}">${v.name} (${v.capacityLabel})</option>`).join('');
-  const dOpts = dispatchableDrivers().map(d=>`<option value="${d.id}">${d.name}</option>`).join('');
-  state.modal = {html:`
-    <div class="modal-bg" onclick="if(event.target===this) closeModal()">
-      <div class="modal">
-        <h3>Create Trip</h3>
-        <p class="sub">Draft a trip, then dispatch when ready.</p>
-        <div class="fieldset">
-          <div><label>Source</label><input id="tSrc" placeholder="Ahmedabad"></div>
-          <div><label>Destination</label><input id="tDst" placeholder="Surat"></div>
-          <div><label>Vehicle (Available only)</label><select id="tVeh"><option value="">Unassigned</option>${vOpts}</select></div>
-          <div><label>Driver (Available only)</label><select id="tDrv"><option value="">Unassigned</option>${dOpts}</select></div>
-          <div><label>Cargo Weight (kg)</label><input id="tCargo" type="number" placeholder="400"></div>
-          <div><label>Planned Distance (km)</label><input id="tDist" type="number" placeholder="150"></div>
-          <div class="full"><label>Expected Revenue (₹, optional — used for ROI)</label><input id="tRev" type="number" placeholder="8000"></div>
-        </div>
-        <div class="modal-actions">
-          <button class="btn secondary" onclick="closeModal()">Cancel</button>
-          <button class="btn" onclick="saveTrip()">Save as Draft</button>
-        </div>
-      </div>
-    </div>`};
-  render();
-}
-function saveTrip(){
-  const source = document.getElementById('tSrc').value.trim();
-  const destination = document.getElementById('tDst').value.trim();
-  const vehicleId = document.getElementById('tVeh').value || null;
-  const driverId = document.getElementById('tDrv').value || null;
-  const cargoWeight = Number(document.getElementById('tCargo').value)||0;
-  const distance = Number(document.getElementById('tDist').value)||0;
-  const revenue = Number(document.getElementById('tRev').value)||0;
-  if(!source || !destination || !cargoWeight){ showToast('Please fill source, destination, and cargo weight.','err'); return; }
-  if(vehicleId){
+function deleteDoc(vehicleId, docType){
+  confirmAction(`Delete the uploaded file for ${docType}? The record (number/expiry) will be kept.`, ()=>{
     const v = getVehicle(vehicleId);
-    if(cargoWeight > v.capacityKg){ showToast(`Cargo weight (${cargoWeight}kg) exceeds ${v.name}'s max capacity (${v.capacityLabel}).`,'err'); return; }
-  }
-  state.data.trips.push({id:uid('TR'), source, destination, vehicleId, driverId, cargoWeight, distance, revenue, status:'Draft', date: '2026-07-12'});
-  closeModal();
-  showToast('Trip saved as Draft.','ok');
-}
-function assignTrip(tripId){
-  const t = getTrip(tripId);
-  const vOpts = dispatchableVehicles().map(v=>`<option value="${v.id}">${v.name} (${v.capacityLabel})</option>`).join('');
-  const dOpts = dispatchableDrivers().map(d=>`<option value="${d.id}">${d.name}</option>`).join('');
-  state.modal = {html:`
-    <div class="modal-bg" onclick="if(event.target===this) closeModal()">
-      <div class="modal">
-        <h3>Assign Vehicle &amp; Driver</h3>
-        <p class="sub">Trip ${t.id}: ${t.source} → ${t.destination} · Cargo ${t.cargoWeight}kg</p>
-        <div class="fieldset">
-          <div class="full"><label>Vehicle</label><select id="aVeh"><option value="">Unassigned</option>${vOpts}</select></div>
-          <div class="full"><label>Driver</label><select id="aDrv"><option value="">Unassigned</option>${dOpts}</select></div>
-        </div>
-        <div class="modal-actions">
-          <button class="btn secondary" onclick="closeModal()">Cancel</button>
-          <button class="btn" onclick="saveAssign('${t.id}')">Save</button>
-        </div>
-      </div>
-    </div>`};
-  render();
-}
-function saveAssign(tripId){
-  const t = getTrip(tripId);
-  const vehicleId = document.getElementById('aVeh').value || null;
-  const driverId = document.getElementById('aDrv').value || null;
-  if(vehicleId){
-    const v = getVehicle(vehicleId);
-    if(t.cargoWeight > v.capacityKg){ showToast(`Cargo weight exceeds ${v.name}'s max capacity.`,'err'); return; }
-  }
-  t.vehicleId = vehicleId; t.driverId = driverId;
-  closeModal();
-  showToast('Trip updated.','ok');
-}
-function dispatchTrip(tripId){
-  const t = getTrip(tripId);
-  const v = getVehicle(t.vehicleId), d = getDriver(t.driverId);
-  if(!v || v.status!=='Available'){ showToast('Vehicle is no longer Available.','err'); return; }
-  if(!d || d.status!=='Available'){ showToast('Driver is no longer Available.','err'); return; }
-  if(isExpired(d.expiry)){ showToast(`${d.name}'s license has expired — cannot dispatch.`,'err'); return; }
-  if(t.cargoWeight > v.capacityKg){ showToast('Cargo weight exceeds vehicle capacity.','err'); return; }
-  t.status='Dispatched'; v.status='On Trip'; d.status='On Trip';
-  render();
-  showToast(`Trip ${t.id} dispatched. ${v.name} & ${d.name} are now On Trip.`,'ok');
+    v.documents[docType].fileName = null;
+    v.documents[docType].fileData = null;
+    showToast(`${docType} file removed.`,'ok');
+    openDocsModal(vehicleId);
+  });
 }
